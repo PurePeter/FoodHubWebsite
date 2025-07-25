@@ -1,37 +1,3 @@
-const navLinks = document.querySelectorAll('.header-navigate a');
-const underline = document.querySelector('.nav-underline');
-
-function moveUnderline(target) {
-    const nav = target.parentElement;
-    const rect = target.getBoundingClientRect();
-    const navRect = nav.getBoundingClientRect();
-    underline.style.width = `${rect.width}px`;
-    underline.style.left = `${rect.left - navRect.left}px`;
-}
-
-navLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-        if (this.getAttribute('href').startsWith('#')) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
-
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80, // Trừ đi chiều cao header (nếu cần)
-                    behavior: 'smooth'
-                });
-                navLinks.forEach(l => l.classList.remove('active'));
-                this.classList.add('active');
-                moveUnderline(this);
-            }
-        }
-    });
-});
-// Khởi tạo vị trí underline cho link active lúc đầu
-const activeLink = document.querySelector('.header-navigate a.active');
-if (activeLink) moveUnderline(activeLink);
-
 // Animation will appear when scroll page
 const scrollRevealElements = document.querySelectorAll('.scroll-reveal');
 const revealObserver = new IntersectionObserver((entries, observer) => {
@@ -49,11 +15,6 @@ const revealObserver = new IntersectionObserver((entries, observer) => {
 
 scrollRevealElements.forEach(element => {
     revealObserver.observe(element);
-});
-
-// Khi tải lại trang, di chuyển đến phần Home
-window.addEventListener('load', () => {
-    window.scrollTo(0, 0);
 });
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -133,6 +94,4 @@ document.addEventListener('DOMContentLoaded', function() {
         showSlide(slideIndex);
         startSlideShow();
     }
-
-    // Các đoạn mã JavaScript khác của bạn có thể đặt ở đây
 });

@@ -1,0 +1,122 @@
+/* --- Menu Page Header --- */
+.menu-header {
+    background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
+    color: var(--white-color);
+    text-align: center;
+    padding: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    line-height: 1.4;
+}
+
+.menu-header h1 {
+    font-size: 3rem;
+    margin: 0;
+    font-weight: 700;
+}
+
+.menu-header p {
+    font-size: 1.4rem;
+    margin: 5px 0;
+}
+
+/* --- Main content area --- */
+.menu-main {
+    padding: 50px 0;
+}
+
+.menu-list-section {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* --- Grid layout for the menu items --- */
+.menu-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* --- Individual menu item card styling --- */
+.menu-item {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.menu-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.menu-item h2 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin: 15px 15px 5px;
+    color: var(--text-color);
+}
+
+.menu-item p {
+    font-size: 1.2rem;
+    color: #666;
+    padding: 0 15px;
+    flex-grow: 1;
+    margin-bottom: 20px;
+}
+
+.menu-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ff6347;
+    padding: 0 15px;
+    margin-bottom: 15px;
+}
+
+.order-btn {
+    display: block;
+    width: calc(100% - 40px);
+    margin: 0 20px 20px;
+    padding: 10px 16px;
+    background-image: linear-gradient(to right, #fe2389, #b253e1);
+    color: var(--white-color);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(254, 35, 137, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.order-btn:hover {
+    transform: scale(1.03);
+    box-shadow: 0 7px 20px rgba(254, 35, 137, 0.6);
+}
+
+.order-btn:active {
+    transform: scale(0.98);
+}
+
+
+/* Animation when scroll page */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1.2s cubic-bezier(0.5, 0, 0, 1), transform 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}

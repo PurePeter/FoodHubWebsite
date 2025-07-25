@@ -7,6 +7,8 @@
     <title>Trang chủ chính</title>
     <link rel="stylesheet" href="./homePage/style.css">
     <link rel="stylesheet" href="./assets/css/base.css">
+    <link rel="stylesheet" href="./assets/css/header.css">
+    <link rel="stylesheet" href="./assets/css/footer.css">
     <link rel="icon" type="image/jpg" href="./assets/img/avatarFood.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link
@@ -17,7 +19,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body>
+<body >
     <!-- Header -->
     <div class="header">
         <a class="link-avatarFood" href="#home"><img class="avatarFood" src="./assets/img/avatarFood.png"
@@ -26,8 +28,8 @@
             <nav>
                 <a class="active" href="#home">Home</a>
                 <a href="#about">Về chúng tôi</a>
-                <a href="#menu">Food Highlight</a>
                 <a href="#contact">Liên hệ</a>
+                <a href="./MenuFood/menuFood.html">Thực đơn</a>
                 <a href="./booking/booking.html">Đặt bàn</a>
                 <div class="nav-underline"></div>
             </nav>
@@ -40,15 +42,40 @@
             </div>
             <div class="header-right-user-menu">
                 <a href="./Login/index.html" title="Đăng nhập" target="_self" class="login-btn">Đăng nhập</a>
-                <span class="notification-btn" title="Thông báo">
-                    <i class="fa-solid fa-bell"></i>
-                </span>
-                <span class="user-avatar">
+                <div class="notification-wrapper">
+                    <span class="notification-btn" title="Thông báo">
+                        <i class="fa-solid fa-bell"></i>
+                    </span>
+                    <!-- Notification Dropdown -->
+                    <div class="notification-dropdown-menu">
+                        <h3 class="notification-header">Thông báo</h3>
+                        <ul class="notification-list">
+                            <li class="notification-item">
+                                <a href="#">
+                                    <img src="./assets/img/salad.jpg" alt="Salad" class="notification-img">
+                                    <div class="notification-info">
+                                        <div class="notification-name">Khuyến mãi salad mùa hè!</div>
+                                        <div class="notificaiton-desc">Giảm giá 20% cho tất cả các món salafdfd.</div>
+                                        <div class="notification-time">1 giờ trước</div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="notification-footer">
+                            <a href="#">Xem tất cả thông báo</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-avatar-wrapper">
                     <img src="./assets/img/unknownAvatarUser.png" alt="Người vô danh" title="Thông tin cá nhân">
-                </span>
-                <!-- <span class="language-btn">
-                    <img src="./assets/img/vietnamicon.png" alt="Language">
-                </span> -->
+                    <div class="user-dropdown-menu">
+                        <a href="#">Thông tin cá nhân</a>
+                        <a href="#">Yêu thích</a>
+                        <a href="#">Đơn hàng của tôi</a>
+                        <a href="#">Ngôn ngữ</a>
+                        <a href="#">Đăng xuất</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -141,7 +168,7 @@
                     <span class="menu-price">35.000đ</span>
                 </div>
             </div>
-            <a href="./menu/menu.html">Xem toàn bộ thực đơn</a>
+            <a href="./MenuFood/menuFood.html">Xem toàn bộ thực đơn</a>
             <div class="menu-note">
                 <p><strong>Lưu ý:</strong> Thực đơn có thể thay đổi theo mùa và chương trình khuyến mãi.</p>
             </div>
@@ -256,8 +283,8 @@
                 <ul>
                     <li><a class="active" href="#home">Home</a></li>
                     <li><a href="#about">Về chúng tôi</a></li>
-                    <li><a href="#menu">Food Highlight</a></li>
                     <li><a href="#contact">Liên hệ</a></li>
+                    <li><a href="./MenuFood/menuFood.html">Thực đơn</a></li>
                     <li><a href="./booking/booking.html">Đặt bàn</a></li>
                 </ul>
             </div>
@@ -283,6 +310,7 @@
             <p>&copy; 2025 FoodHub. All rights reserved. Made by PurePeter</p>
         </div>
     </footer>
+    <script src="./assets/interact/header.js"></script>
     <script src="./homePage/script.js"></script>
 </body>
 
