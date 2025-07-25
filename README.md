@@ -5,5 +5,5 @@ FoodHub là một website giới thiệu các món ăn truyền thống và hi�
 ## Tính năng chính
 - Xem danh sách món ăn theo loại (món chính, món phụ, tráng miệng, v.v.)
 - Tìm kiếm món ăn theo tên
-- Xem chi tiết nguyên liệu và cách chế biến
+- Có thể đánh giá món ăn và xem những đánh giá chân thật từ khách hàng 
 - Giao diện đẹp, dễ sử dụng
