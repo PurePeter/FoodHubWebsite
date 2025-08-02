@@ -154,4 +154,30 @@ document.addEventListener("DOMContentLoaded", function () {
     // Gọi hàm để thiết lập logic
     handleUserDropdown();
     handleNotificationDropdown();
+
+    // --- Search Logic ---
+    const searchInput = document.querySelector('.header-right-search input');
+    const searchIcon = document.querySelector('.header-right-search i');
+
+    function performSearch() {
+        const searchTerm = searchInput.value.trim();
+        if (searchTerm) {
+            // Xác định đường dẫn tương đối chính xác đến trang MenuFood
+            // Giả sử header.js nằm trong assets/interact/
+            const menuPageUrl = window.location.pathname.includes('index.html') 
+                ? './MenuFood/menuFood.html' 
+                : '../MenuFood/menuFood.html';
+            window.location.href = `${menuPageUrl}?search=${encodeURIComponent(searchTerm)}`;
+        }
+    }
+
+    if (searchInput && searchIcon) {
+        searchIcon.addEventListener('click', performSearch);
+
+        searchInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+    }
 });

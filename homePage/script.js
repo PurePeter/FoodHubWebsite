@@ -94,4 +94,6 @@ document.addEventListener('DOMContentLoaded', function() {
         showSlide(slideIndex);
         startSlideShow();
     }
+
+    
 });

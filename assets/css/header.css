@@ -217,11 +217,12 @@
     display: block;
     font-size: 1.4rem;
     /* white-space: nowrap; */
-    transition: background-color 0.3s
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .user-dropdown-menu a:hover {
     background-color: #ededed;
+    color: #fe2389;
 }
 
 .user-dropdown-menu a:first-child {

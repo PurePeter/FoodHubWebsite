@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,6 +18,7 @@
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body class="guest">
     <!-- Header -->
     <div class="header">
@@ -84,85 +86,26 @@
         <p>Khám phá các món ăn đặc sắc, tươi ngon mỗi ngày!</p>
     </header>
     <main class="menu-main scroll-reveal">
+        <div class="menu-controls">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="all">Tất cả</button>
+                <button class="filter-btn" data-category="main_course">Món chính</button>
+                <button class="filter-btn" data-category="appetizer">Món khai vị</button>
+                <button class="filter-btn" data-category="dessert">Tráng miệng</button>
+                <button class="filter-btn" data-category="drink">Nước uống</button>
+            </div>
+            <div class="sort-options">
+                <select id="sort-select" class="sort-select">
+                    <option value="default">Mặc định</option>
+                    <option value="az">Tên: A-Z</option>
+                    <option value="za">Tên: Z-A</option>
+                    <option value="price-asc">Giá: Tăng dần</option>
+                    <option value="price-desc">Giá: Giảm dần</option>
+                </select>
+            </div>
+        </div>
         <section class="menu-list-section">
             <div class="menu-list">
-                <div class="menu-item">
-                    <img src="../assets/img/burger.jpg" alt="Burger đặc biệt">
-                    <h2>Burger đặc biệt</h2>
-                    <p>Bánh burger thơm ngon với thịt bò nhập khẩu, rau củ tươi sạch.</p>
-                    <span class="menu-price">75.000đ</span>
-                    <button class="order-btn">Đặt món</button>
-                </div>
-                <div class="menu-item">
-                    <img src="../assets/img/pizza.jpg" alt="Pizza truyền thống">
-                    <h2>Pizza truyền thống</h2>
-                    <p>Pizza Ý với phô mai Mozzarella và sốt cà chua đặc biệt.</p>
-                    <span class="menu-price">120.000đ</span>
-                    <button class="order-btn">Đặt món</button>
-                </div>
-                <div class="menu-item">
-                    <img src="../assets/img/salad.jpg" alt="Salad tươi ngon">
-                    <h2>Salad tươi ngon</h2>
-                    <p>Salad rau củ hữu cơ, sốt dầu giấm thanh nhẹ.</p>
-                    <span class="menu-price">55.000đ</span>
-                    <button class="order-btn">Đặt món</button>
-                </div>
-                <div class="menu-item">
-                    <img src="../assets/img/buncha.jpg" alt="Bún chả Hà Nội">
-                    <h2>Bún chả Hà Nội</h2>
-                    <p>Bún chả truyền thống với nước mắm pha chua ngọt, thịt nướng thơm lừng.</p>
-                    <span class="menu-price">60.000đ</span>
-                    <button class="order-btn">Đặt món</button>
-                </div>
-                <div class="menu-item">
-                    <img src="../assets/img/banhxeo.jpg" alt="Bánh xèo miền Trung">
-                    <h2>Bánh xèo miền Trung</h2>
-                    <p>Bánh xèo giòn rụm, nhân tôm thịt, ăn kèm rau sống và nước mắm chua ngọt.</p>
-                    <span class="menu-price">50.000đ</span>
-                    <button class="order-btn">Đặt món</button>
-                </div>
-                <div class="menu-item">
-                    <img src="../assets/img/pho.jpg" alt="Phở bò Hà Nội">
-                    <h2>Phở bò Hà Nội</h2>
-                    <p>Giá cả bình dân, nguyên liệu tươi ngon, với nước dùng chuẩn vị Hà Nội ngon hết nước chấm.</p>
-                    <span class="menu-price">40.000đ</span>
-                    <button class="order-btn">Đặt món</button>
-                </div>
-                <div class="menu-item">
-                    <img src="../assets/img/steak.jpg" alt="Steak bò Mỹ">
-                    <h2>Steak Bò Mỹ Sốt Tiêu</h2>
-                    <p>Thịt bò Mỹ thượng hạng, nướng hoàn hảo theo yêu cầu, ăn kèm khoai tây chiên và sốt tiêu xanh.</p>
-                    <span class="menu-price">250.000đ</span>
-                    <button class="order-btn">Đặt món</button>
-                </div>
-                <div class="menu-item">
-                    <img src="../assets/img/spaghetti.jpg" alt="Mì Ý Carbonara">
-                    <h2>Mì Ý Carbonara</h2>
-                    <p>Sợi mì Ý dai ngon, hòa quyện trong sốt kem béo ngậy và thịt xông khói đậm đà.</p>
-                    <span class="menu-price">95.000đ</span>
-                    <button class="order-btn">Đặt món</button>
-                </div>
-                <div class="menu-item">
-                    <img src="../assets/img/comtam.jpg" alt="Cơm tấm sườn bì chả">
-                    <h2>Cơm Tấm Sườn Bì Chả</h2>
-                    <p>Đĩa cơm tấm đầy đủ với sườn nướng mật ong, bì, chả trứng và nước mắm kẹo.</p>
-                    <span class="menu-price">65.000đ</span>
-                    <button class="order-btn">Đặt món</button>
-                </div>
-                <div class="menu-item">
-                    <img src="../assets/img/orange-juice.jpg" alt="Nước ép cam tươi">
-                    <h2>Nước ép cam tươi</h2>
-                    <p>Nước ép từ những trái cam mọng nước, không đường, tốt cho sức khỏe.</p>
-                    <span class="menu-price">40.000đ</span>
-                    <button class="order-btn">Đặt món</button>
-                </div>
-                <div class="menu-item">
-                    <img src="../assets/img/nuoc-ngot-co-ga.jpg" alt="Đồ uống có ga">
-                    <h2>Đồ uống có ga</h2>
-                    <p>Giải khát, kết hợp với món ăn hòa quyện không thể thiếu.</p>
-                    <span class="menu-price">20.000đ</span>
-                    <button class="order-btn">Đặt món</button>
-                </div>
             </div>
         </section>
     </main>
@@ -189,7 +132,8 @@
                 <ul>
                     <li><i class="fa-solid fa-location-dot"></i>123 phường Hiệp Bình Chánh, Quận Thủ Đức, TPHCM</li>
                     <li><i class="fa-solid fa-phone"></i><a href="tel:0123456789">0123 456 789</a></li>
-                    <li><i class="fa-solid fa-envelope"></i><a href="mailto:contact@foodhub.com">contact@foodhub.com</a></li>
+                    <li><i class="fa-solid fa-envelope"></i><a href="mailto:contact@foodhub.com">contact@foodhub.com</a>
+                    </li>
                 </ul>
             </div>
             <div class="footer-column">
@@ -209,4 +153,5 @@
     <script src="../assets/interact/header.js"></script>
     <script src="menuFood.js"></script>
 </body>
-</html> 
+
+</html>

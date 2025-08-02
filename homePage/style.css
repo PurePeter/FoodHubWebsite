@@ -49,25 +49,31 @@ section>p {
 
 .slides-wrapper {
     display: flex;
-    transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1); /* Hiệu ứng trượt mượt mà */
+    transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+    /* Hiệu ứng trượt mượt mà */
 }
 
 .slide {
-    flex: 1 0 100%; /* Mỗi slide chiếm toàn bộ chiều rộng của container */
-    transform: scale(0.95); /* Các slide không active sẽ nhỏ hơn một chút */
-    opacity: 0.5; /* và mờ hơn */
+    flex: 1 0 100%;
+    /* Mỗi slide chiếm toàn bộ chiều rộng của container */
+    transform: scale(0.95);
+    /* Các slide không active sẽ nhỏ hơn một chút */
+    opacity: 0.5;
+    /* và mờ hơn */
     transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.8s;
+    text-align: center;
 }
 
 .slide.active {
-    transform: scale(1); /* Slide active có kích thước bình thường */
+    transform: scale(1);
+    /* Slide active có kích thước bình thường */
     opacity: 1;
 }
 
 .slide img {
-    width: 100%;
-    height: 600px; 
-    object-fit: cover; 
+    width: 90%;
+    height: 550px;
+    object-fit: fill;
     vertical-align: middle;
     border-radius: 10px;
 }
@@ -85,15 +91,16 @@ section>p {
     font-weight: bold;
     font-size: 20px;
     transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
+    border-radius: 3px;
     user-select: none;
     background-color: rgba(0, 0, 0, 0.3);
-    z-index: 10; /* Đảm bảo nút nằm trên ảnh */
+    z-index: 10;
+    /* Đảm bảo nút nằm trên ảnh */
 }
 
 .next {
     right: 0;
-    border-radius: 3px 0 0 3px;
+    border-radius: 3px;
 }
 
 .prev:hover,
@@ -107,7 +114,8 @@ section>p {
     position: absolute;
     bottom: 15px;
     width: 100%;
-    z-index: 10; /* Đảm bảo chấm nằm trên ảnh */
+    z-index: 10;
+    /* Đảm bảo chấm nằm trên ảnh */
 }
 
 .dot {
@@ -177,6 +185,12 @@ section>p {
     line-height: 1.6;
 }
 
+.about-us li i {
+    color: rgb(237, 237, 8);
+    font-size: 1.6rem;
+    margin-right: 2px;
+}
+
 .about-team {
     background: #f8f9fa;
     padding: 20px;
@@ -231,7 +245,8 @@ section>p {
 .menu-item h3 {
     font-size: 1.8rem;
     color: var(--text-color);
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+    text-align: left;
 }
 
 .menu-item p {
@@ -239,13 +254,40 @@ section>p {
     color: #666;
     margin-bottom: 15px;
     min-height: 40px;
+    text-align: left;
 }
 
 .menu-price {
     font-size: 1.6rem;
-    color: #d81b60;
+    color: #ff6347;
     font-weight: bold;
     margin-bottom: 10px;
+}
+
+.order-btn {
+    display: block;
+    width: calc(100% - 40px);
+    margin: 0 20px;
+    padding: 10px 16px;
+    background-image: linear-gradient(to right, #fe2389, #b253e1);
+    color: var(--white-color);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(254, 35, 137, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.order-btn:hover {
+    transform: scale(1.03);
+    box-shadow: 0 7px 20px rgba(254, 35, 137, 0.6);
+}
+
+.order-btn:active {
+    transform: scale(0.98);
 }
 
 .menu-preview>a {
