@@ -36,6 +36,21 @@ app.get("/api/dishes", async (req, res) => {
   }
 });
 
+// Endpoint để phục vụ ảnh món ăn từ MongoDB
+app.get('/api/dishes/:id/image', async (req, res) => {
+  try {
+    const dish = await Dish.findById(req.params.id);
+    if (!dish || !dish.imageData || !dish.contentType) {
+      return res.status(404).send('Image not found');
+    }
+    res.set('Content-Type', dish.contentType);
+    res.send(dish.imageData);
+  } catch (error) {
+    console.error('Error serving image:', error);
+    res.status(500).send('Server error');
+  }
+});
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });

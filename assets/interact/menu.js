@@ -41,7 +41,7 @@ function createMenuItem(dish) {
   menuItem.classList.add("menu-item");
 
   menuItem.innerHTML = `
-        <img src="${dish.imageUrl}" alt="${dish.name}">
+        <img src="http://localhost:3001/api/dishes/${dish._id}/image" alt="${dish.name}">
         <h3>${dish.name}</h3>
         <p>${dish.description}</p>
         <div class="menu-price">${dish.price.toLocaleString("vi-VN")} VNĐ</div>

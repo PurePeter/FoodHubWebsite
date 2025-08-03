@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const menuList = document.querySelector(".menu-list");
   const filterButtons = document.querySelectorAll(".filter-btn");
   const sortSelect = document.getElementById("sort-select");
+  const searchInput = document.getElementById("search-input"); // Lấy tham chiếu đến thanh tìm kiếm
 
   // --- Main Function to Render Dishes ---
   function renderDishes() {
@@ -65,6 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 4. Display on page
     menuList.innerHTML = "";
+    menuList.style.display = "grid"; // Đảm bảo hiển thị lưới khi có kết quả
     if (filteredDishes.length === 0) {
       menuList.style.display = "block";
       menuList.innerHTML = `<p class="no-results" style='font-size: 1.6rem; margin-left: 30px'>Không tìm thấy món ăn nào phù hợp với từ '${currentFilters.searchTerm}'.</p>`;
@@ -75,7 +77,9 @@ document.addEventListener("DOMContentLoaded", function () {
       const menuItem = document.createElement("div");
       menuItem.classList.add("menu-item");
       menuItem.innerHTML = `
-                <img src="${dish.imageUrl}" alt="${dish.name}">
+                <img src="http://localhost:3001/api/dishes/${
+                  dish._id
+                }/image" alt="${dish.name}">
                 <h2>${dish.name}</h2>
                 <p>${dish.description}</p>
                 <span class="menu-price">${dish.price.toLocaleString(
@@ -102,10 +106,19 @@ document.addEventListener("DOMContentLoaded", function () {
     renderDishes();
   });
 
+  // Lắng nghe sự kiện nhập liệu trên thanh tìm kiếm
+  searchInput.addEventListener("input", (e) => {
+    currentFilters.searchTerm = e.target.value.toLowerCase();
+    renderDishes();
+  });
+
   // --- Initial Fetch ---
   async function initializeMenu() {
     const urlParams = new URLSearchParams(window.location.search);
     currentFilters.searchTerm = urlParams.get("search")?.toLowerCase() || "";
+
+    // Đặt giá trị cho thanh tìm kiếm khi khởi tạo
+    searchInput.value = currentFilters.searchTerm;
 
     try {
       const response = await fetch("http://localhost:3001/api/dishes");
