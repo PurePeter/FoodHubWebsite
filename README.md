@@ -12,3 +12,4 @@ FoodHub là một website giới thiệu các món ăn truyền thống và hi�
 ## Tài khoản sau khi đăng nhập, đăng kí (đang triển khai)
 
 - Hiện tại chưa xử lý việc sau khi đăng nhập nhưng bạn có thể xem một chút tính năng demo bằng cách thêm class = "guest" vào thẻ body của mỗi trang.
+- Backend hiện tại chưa phù hợp để xử lý dự án này nên mọi người thông cảm nha

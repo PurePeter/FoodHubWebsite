@@ -77,9 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const menuItem = document.createElement("div");
       menuItem.classList.add("menu-item");
       menuItem.innerHTML = `
-                <img src="http://localhost:3001/api/dishes/${
-                  dish._id
-                }/image" alt="${dish.name}">
+                <img src="../assets/img/${dish.image}" alt="${dish.name}">
                 <h2>${dish.name}</h2>
                 <p>${dish.description}</p>
                 <span class="menu-price">${dish.price.toLocaleString(
@@ -121,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
     searchInput.value = currentFilters.searchTerm;
 
     try {
-      const response = await fetch("http://localhost:3001/api/dishes");
+      const response = await fetch("../assets/data/dishes.json");
       if (!response.ok)
         throw new Error(`HTTP error! status: ${response.status}`);
       allDishes = await response.json();

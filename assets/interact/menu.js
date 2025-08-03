@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuList = document.querySelector(".menu-list");
 
   if (menuList) {
-    fetch("http://localhost:3001/api/dishes")
+    fetch("./assets/data/dishes.json") // Thay đổi đường dẫn fetch
       .then((response) => response.json())
       .then((data) => {
         const featuredDishes = getFeaturedDishes(data);
@@ -41,7 +41,7 @@ function createMenuItem(dish) {
   menuItem.classList.add("menu-item");
 
   menuItem.innerHTML = `
-        <img src="http://localhost:3001/api/dishes/${dish._id}/image" alt="${dish.name}">
+        <img src="./assets/img/${dish.image}" alt="${dish.name}">
         <h3>${dish.name}</h3>
         <p>${dish.description}</p>
         <div class="menu-price">${dish.price.toLocaleString("vi-VN")} VNĐ</div>

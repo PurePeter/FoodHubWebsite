@@ -1,0 +1,130 @@
+[
+  {
+    "_id": "1",
+    "name": "Phở Bò",
+    "description": "Phở bò truyền thống với nước dùng đậm đà và thịt bò tươi.",
+    "price": 55000,
+    "category": "main_course",
+    "image": "pho.jpg"
+  },
+  {
+    "_id": "2",
+    "name": "Bún Chả",
+    "description": "Bún chả Hà Nội với thịt nướng thơm lừng và nước chấm chua ngọt.",
+    "price": 50000,
+    "category": "main_course",
+    "image": "buncha.jpg"
+  },
+  {
+    "_id": "3",
+    "name": "Cơm Tấm",
+    "description": "Cơm tấm sườn bì chả, một món ăn đặc trưng của miền Nam.",
+    "price": 60000,
+    "category": "main_course",
+    "image": "comtam.jpg"
+  },
+  {
+    "_id": "4",
+    "name": "Bánh Xèo",
+    "description": "Bánh xèo giòn rụm với nhân tôm thịt và giá đỗ.",
+    "price": 45000,
+    "category": "appetizer",
+    "image": "banhxeo.jpg"
+  },
+  {
+    "_id": "5",
+    "name": "Hamburger",
+    "description": "Hamburger bò với phô mai, rau diếp và cà chua.",
+    "price": 70000,
+    "category": "main_course",
+    "image": "burger.jpg"
+  },
+  {
+    "_id": "6",
+    "name": "Pizza",
+    "description": "Pizza hải sản với nhiều loại topping tươi ngon.",
+    "price": 120000,
+    "category": "main_course",
+    "image": "pizza.jpg"
+  },
+  {
+    "_id": "7",
+    "name": "Spaghetti",
+    "description": "Mì Ý sốt bò bằm cổ điển.",
+    "price": 85000,
+    "category": "main_course",
+    "image": "spaghetti.jpg"
+  },
+  {
+    "_id": "8",
+    "name": "Bò Bít Tết",
+    "description": "Bò bít tết nhập khẩu dùng kèm khoai tây chiên và salad.",
+    "price": 150000,
+    "category": "main_course",
+    "image": "steak.jpg"
+  },
+  {
+    "_id": "9",
+    "name": "Salad Trộn",
+    "description": "Salad rau củ tươi ngon với sốt dầu giấm.",
+    "price": 40000,
+    "category": "appetizer",
+    "image": "salad.jpg"
+  },
+  {
+    "_id": "10",
+    "name": "Nước ngọt có ga",
+    "description": "Nước ngọt mát lạnh (Coca-cola, Pepsi, Sprite).",
+    "price": 20000,
+    "category": "drink",
+    "image": "nuoc-ngot-co-ga.jpg"
+  },
+  {
+    "_id": "11",
+    "name": "Nước Cam Ép",
+    "description": "Nước cam ép nguyên chất, không đường.",
+    "price": 30000,
+    "category": "drink",
+    "image": "orange-juice.jpg"
+  },
+  {
+    "_id": "12",
+    "name": "Món Tiramisu",
+    "description": "Món tráng miệng mát lạnh ngon ngọt được yêu thích",
+    "price": 40000,
+    "category": "dessert",
+    "image": "tiramisu.jpg"
+  },
+  {
+    "_id": "13",
+    "name": "Chả giò",
+    "description": "Chả giò giòn rụm với nhân thịt, mộc nhĩ và miến.",
+    "price": 45000,
+    "category": "appetizer",
+    "image": "chagio.jpg"
+  },
+  {
+    "_id": "14",
+    "name": "Gỏi cuốn",
+    "description": "Cuốn tôm thịt tươi ngon với rau sống, bún, chấm mắm nêm.",
+    "price": 30000,
+    "category": "appetizer",
+    "image": "goicuon.jpg"
+  },
+  {
+    "_id": "15",
+    "name": "Rau Câu Dừa",
+    "description": "Rau câu hai lớp với vị dừa thơm mát và béo nhẹ.",
+    "price": 30000,
+    "category": "dessert",
+    "image": "raucaudua.jpg"
+  },
+  {
+    "_id": "16",
+    "name": "Trà Tắc",
+    "description": "Trà tắc mát lạnh, chua ngọt dịu nhẹ, giúp thanh nhiệt.",
+    "price": 12000,
+    "category": "drink",
+    "image": "tra-tac.png"
+  }
+]
