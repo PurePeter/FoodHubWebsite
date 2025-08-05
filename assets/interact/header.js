@@ -1,183 +1,194 @@
-const navLinks = document.querySelectorAll('.header-navigate a');
-const underline = document.querySelector('.nav-underline');
+document.addEventListener("DOMContentLoaded", function () {
+    // --- Elements --- 
+    const header = document.querySelector('.header');
+    const menuCheckbox = document.getElementById("check");
+    const userMenuCheckbox = document.getElementById("user-menu-check");
+    const searchCheckbox = document.getElementById("search-check");
+    const userAvatarWrapper = document.querySelector(".user-avatar-wrapper");
+    const notificationWrapper = document.querySelector(".notification-wrapper");
 
-function moveUnderline(target) {
-    const nav = target.parentElement;
-    const rect = target.getBoundingClientRect();
-    const navRect = nav.getBoundingClientRect();
-    underline.style.width = `${rect.width}px`;
-    underline.style.left = `${rect.left - navRect.left}px`;
-}
+    const mainCheckboxes = [menuCheckbox, userMenuCheckbox, searchCheckbox].filter(Boolean);
+    const subMenus = [userAvatarWrapper, notificationWrapper].filter(Boolean);
 
-navLinks.forEach(link => {
-    link.addEventListener('click', function (e) {
-        if (this.getAttribute('href').startsWith('#')) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
+    // --- Close Functions ---
+    function closeSubMenus() {
+        subMenus.forEach(menu => menu.classList.remove('active'));
+    }
 
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80, // Trừ đi chiều cao header (nếu cần)
-                    behavior: 'smooth'
+    function closeAllMainMenus() {
+        mainCheckboxes.forEach(cb => cb.checked = false);
+        if (header) {
+            header.classList.remove("search-active");
+        }
+    }
+
+    function closeEverything() {
+        closeAllMainMenus();
+        closeSubMenus();
+    }
+
+    // --- Event Listeners ---
+
+    // 1. Handle Main Menus (checkboxes)
+    mainCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            if (this.checked) {
+                // Close other main menus
+                mainCheckboxes.forEach(otherCb => {
+                    if (otherCb !== this) otherCb.checked = false;
                 });
-                navLinks.forEach(l => l.classList.remove('active'));
-                this.classList.add('active');
-                moveUnderline(this);
+                // Close all sub-menus when a main menu is opened
+                closeSubMenus();
+
+                // Special handling for search bar
+                if (this.id === 'search-check') {
+                    header.classList.add("search-active");
+                    searchInput.focus();
+                } else {
+                    header.classList.remove("search-active");
+                }
+            } else {
+                // Cleanup when a menu is unchecked manually
+                if (this.id === 'search-check') {
+                    header.classList.remove("search-active");
+                }
             }
+        });
+    });
+
+    // 2. Handle Sub-Menus (avatar, notifications)
+    subMenus.forEach(menu => {
+        menu.addEventListener('click', function(e) {
+            e.stopPropagation(); // IMPORTANT: Prevents the global click listener from firing
+            const isActive = this.classList.contains('active');
+            // First, close the other sub-menu
+            closeSubMenus();
+            // Then, if the clicked menu was not already active, open it.
+            if (!isActive) {
+                this.classList.add('active');
+            }
+        });
+    });
+
+    // 3. Global Click-Away Listener
+    document.addEventListener('click', (e) => {
+        if (header && !header.contains(e.target)) {
+            closeEverything();
         }
     });
-});
 
-// Khởi tạo vị trí underline cho link active lúc đầu
-const activeLink = document.querySelector('.header-navigate a.active');
-if (activeLink) moveUnderline(activeLink);
+    // --- Guest User Dropdown Logic (UNCHANGED) ---
+    function handleUserDropdown() {
+        const dropdownMenu = document.querySelector(".user-dropdown-menu");
+        if (!dropdownMenu) return;
+        const isGuest = document.body.classList.contains("guest");
+        if (isGuest) {
+            dropdownMenu.innerHTML = '<p class="user-dropdown-menu-guest-link">Bạn cần đăng nhập để sử dụng những tính năng này!</p>';
+        }
+    }
 
-// Khi tải lại trang, di chuyển đến phần Home
-window.addEventListener('load', () => {
-    window.scrollTo(0, 0);
-});
+    // --- Guest Notification Dropdown Logic (UNCHANGED) ---
+    function handleNotificationDropdown() {
+        const notificationMenu = document.querySelector(".notification-dropdown-menu");
+        if (!notificationMenu) return;
+        const isGuest = document.body.classList.contains("guest");
+        if (isGuest) {
+            notificationMenu.innerHTML = '<p href="./Login/index.html" class="user-dropdown-menu-guest-link">Bạn cần đăng nhập để xem thông báo!</p>';
+        }
+    }
 
-document.addEventListener("DOMContentLoaded", function () {
-    // --- Logic for header navigation ---
-    const navLinks = document.querySelectorAll('.header-navigate a');
-    const underline = document.querySelector('.nav-underline');
+    handleUserDropdown();
+    handleNotificationDropdown();
+
+    // --- Search Bar Logic ---
+    const searchInput = document.querySelector('.header-right-search input');
+    const searchIcon = document.querySelector('.search-icon');
+    const clearIcon = document.querySelector('.clear-icon');
+
+    function performSearch() {
+        const searchTerm = searchInput.value.trim();
+        if (searchTerm) {
+            const menuPageUrl = window.location.pathname.includes("index.html")
+                ? "./MenuFood/menuFood.html"
+                : "../MenuFood/menuFood.html";
+            window.location.href = `${menuPageUrl}?search=${encodeURIComponent(searchTerm)}`;
+        }
+    }
+
+    if (searchInput && searchIcon && clearIcon && searchCheckbox) {
+        searchInput.addEventListener('input', () => {
+            const hasText = searchInput.value.trim() !== '';
+            clearIcon.style.visibility = hasText ? 'visible' : 'hidden';
+            clearIcon.style.opacity = hasText ? '1' : '0';
+        });
+
+        clearIcon.addEventListener('click', (e) => {
+            e.stopPropagation();
+            searchInput.value = '';
+            clearIcon.style.visibility = 'hidden';
+            clearIcon.style.opacity = '0';
+            searchInput.focus();
+        });
+
+        searchIcon.addEventListener('click', (e) => {
+            // Only perform search if the search bar is already open and there's text.
+            // Otherwise, let the label do its default job of toggling the checkbox.
+            if (searchCheckbox.checked && searchInput.value.trim() !== '') {
+                e.preventDefault(); // Stop the label from closing the search bar.
+                performSearch();
+            }
+        });
+
+        searchInput.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") {
+                performSearch();
+            }
+        });
+
+        clearIcon.style.visibility = 'hidden';
+        clearIcon.style.opacity = '0';
+    }
+
+    // --- Navigation Underline Logic (UNCHANGED) ---
+    const navLinks = document.querySelectorAll(".header-navigate a");
+    const underline = document.querySelector(".nav-underline");
 
     function moveUnderline(target) {
         if (!underline || !target) return;
-        const nav = target.parentElement;
-        const rect = target.getBoundingClientRect();
+        const nav = target.closest(".header-navigate");
+        if (!nav) return;
+        const targetRect = target.getBoundingClientRect();
         const navRect = nav.getBoundingClientRect();
-        underline.style.width = `${rect.width}px`;
-        underline.style.left = `${rect.left - navRect.left}px`;
+        underline.style.width = `${targetRect.width}px`;
+        underline.style.left = `${targetRect.left - navRect.left}px`;
     }
 
-    navLinks.forEach(link => {
-        link.addEventListener('click', function (e) {
-            // This logic is more for single-page apps with anchor links.
-            // On the booking page, links go to other pages, so this might not be necessary,
-            // but we keep it for consistency with the homepage script.
-            if (this.getAttribute('href').startsWith('#')) {
+    navLinks.forEach((link) => {
+        link.addEventListener("click", function (e) {
+            if (this.getAttribute("href").startsWith("#")) {
                 e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
+                const targetId = this.getAttribute("href").substring(1);
                 const targetElement = document.getElementById(targetId);
 
                 if (targetElement) {
                     window.scrollTo({
                         top: targetElement.offsetTop - 80, // Adjust for header height
-                        behavior: 'smooth'
+                        behavior: "smooth",
                     });
-                    navLinks.forEach(l => l.classList.remove('active'));
-                    this.classList.add('active');
+                    navLinks.forEach((l) => l.classList.remove("active"));
+                    this.classList.add("active");
                     moveUnderline(this);
                 }
             }
         });
     });
 
-    // --- Dropdown Mutual Exclusivity ---
-    const userAvatarWrapper = document.querySelector('.user-avatar-wrapper');
-    const notificationWrapper = document.querySelector('.notification-wrapper');
-
-    if (userAvatarWrapper && notificationWrapper) {
-        // Toggle user dropdown
-        userAvatarWrapper.addEventListener('click', function (e) {
-            e.stopPropagation();
-            const isActive = userAvatarWrapper.classList.contains('active');
-            // Đóng notification nếu đang mở
-            notificationWrapper.classList.remove('active');
-            // Toggle user
-            userAvatarWrapper.classList.toggle('active', !isActive);
-        });
-        // Toggle notification dropdown
-        notificationWrapper.querySelector('.notification-btn').addEventListener('click', function (e) {
-            e.stopPropagation();
-            const isActive = notificationWrapper.classList.contains('active');
-            // Đóng user nếu đang mở
-            userAvatarWrapper.classList.remove('active');
-            // Toggle notification
-            notificationWrapper.classList.toggle('active', !isActive);
-        });
-        // Đóng cả hai khi click ra ngoài
-        document.addEventListener('click', function () {
-            userAvatarWrapper.classList.remove('active');
-            notificationWrapper.classList.remove('active');
-        });
+    const activeLink = document.querySelector(".header-navigate a.active");
+    if (activeLink) {
+        moveUnderline(activeLink);
     }
+});
 
-    /**
-     * Hàm này xử lý logic cho dropdown menu của người dùng.
-     * Nó kiểm tra xem người dùng có phải là khách hay không và xử lý sự kiện click cho phù hợp.
-     */
-    function handleUserDropdown() {
-        const dropdownMenu = document.querySelector('.user-dropdown-menu');
-        if (!dropdownMenu) return; // Thoát nếu không tìm thấy menu
-
-        // Giả định rằng khi người dùng chưa đăng nhập, thẻ <body> sẽ có class="guest".
-        const isGuest = document.body.classList.contains('guest');
-
-        // Nếu là khách, thay đổi nội dung dropdown
-        if (isGuest) {
-            // Xóa các link hiện có
-            dropdownMenu.innerHTML = '';
-
-            // Tạo và thêm thông báo mới, làm cho nó trông giống một mục menu
-            const guestMessage = document.createElement('p');
-            guestMessage.textContent = 'Bạn cần đăng nhập để sử dụng những tính năng này!';
-            
-            // Thêm sự kiện click để chuyển đến trang đăng nhập
-            // !!! QUAN TRỌNG: Hãy thay đổi './Login/index.html' thành URL trang đăng nhập thực tế của bạn
-            guestMessage.href = './Login/index.html';
-
-            dropdownMenu.appendChild(guestMessage);
-        }
-        // Nếu không phải là khách (đã đăng nhập), chúng ta không cần làm gì cả,
-        // các link sẽ hoạt động bình thường.
-    }
-
-    /**
-     * Hàm này xử lý logic cho dropdown thông báo.
-     * Nếu là khách, nó sẽ hiển thị thông báo yêu cầu đăng nhập.
-     */
-    function handleNotificationDropdown() {
-        const notificationMenu = document.querySelector('.notification-dropdown-menu');
-        if (!notificationMenu) return;
-
-        const isGuest = document.body.classList.contains('guest');
-
-        if (isGuest) {
-            // Thay thế nội dung bằng một link duy nhất đến trang đăng nhập
-            notificationMenu.innerHTML = '<p href="./Login/index.html" class="user-dropdown-menu-guest-link">Bạn cần đăng nhập để xem thông báo!</p>';
-        }
-    }
-
-    // Gọi hàm để thiết lập logic
-    handleUserDropdown();
-    handleNotificationDropdown();
-
-    // --- Search Logic ---
-    const searchInput = document.querySelector('.header-right-search input');
-    const searchIcon = document.querySelector('.header-right-search i');
-
-    function performSearch() {
-        const searchTerm = searchInput.value.trim();
-        if (searchTerm) {
-            // Xác định đường dẫn tương đối chính xác đến trang MenuFood
-            // Giả sử header.js nằm trong assets/interact/
-            const menuPageUrl = window.location.pathname.includes('index.html') 
-                ? './MenuFood/menuFood.html' 
-                : '../MenuFood/menuFood.html';
-            window.location.href = `${menuPageUrl}?search=${encodeURIComponent(searchTerm)}`;
-        }
-    }
-
-    if (searchInput && searchIcon) {
-        searchIcon.addEventListener('click', performSearch);
-
-        searchInput.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') {
-                performSearch();
-            }
-        });
-    }
+window.addEventListener("load", () => {
+    window.scrollTo(0, 0);
 });

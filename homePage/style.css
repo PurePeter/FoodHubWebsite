@@ -290,6 +290,10 @@ section>p {
     transform: scale(0.98);
 }
 
+.menu-preview {
+    padding: 20px 12px;
+}
+
 .menu-preview>a {
     display: block;
     width: fit-content;
@@ -442,4 +446,144 @@ section>p {
 .scroll-reveal.is-visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Responsive */
+.icons {
+    position: absolute;
+    right: 5%;
+    font-size: 2.4rem;
+    color: var(--white-color);
+    cursor: pointer;
+    display: none;
+}
+
+#check {
+    display: none;
+}
+
+/* BREAKPOINT */
+@media (max-width: 992px) {
+    .header {
+        padding: 1.3rem 5%;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Container */
+    .main-container {
+        padding: 0 12px;
+    }
+
+    section h1,
+    section h2 {
+        font-size: 2.4rem;
+        margin-top: 5px;
+    }
+
+    section>p {
+        font-size: 1.4rem;
+        text-align: justify;
+    }
+
+    .slide img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .prev,
+    .next {
+        padding: 12px
+    }
+
+    .dots-container {
+        bottom: 6px;
+    }
+
+    .dot {
+        height: 8px;
+        width: 8px;
+    }
+
+    .about-us ul {
+        padding-left: 20px;
+    }
+
+    .about-team {
+        padding: 0;
+    }
+
+    .home-highlights h3 {
+        font-size: 2.2rem;
+    }
+
+    .home-highlights ul li {
+        font-size: 1.4rem;
+        text-align: center;
+    }
+
+    .menu-preview>h2 {
+        margin-bottom: 20px;
+    }
+
+    .menu-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .menu-item {
+        padding: 14px;
+    }
+
+    .menu-item img {
+        height: 100px;
+        object-fit: fill;
+        margin-bottom: 8px;
+    }
+
+    .menu-item h3 {
+        font-size: 1.6rem;
+        margin-bottom: 4px;
+    }
+
+    .menu-item p {
+        min-height: 55px;
+    }
+
+    .menu-item:hover {
+        transform: translateY(-6px);
+    }
+
+    .menu-preview>a {
+        margin: 10px auto 0 auto;
+    }
+
+    /* Picture Area */
+    .gallery-images {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    /* .testimonial */
+    .testimonial-list {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 10px;
+    }
+
+    /* Contact */
+    .contact>h2 {
+        margin-bottom: 24px;
+    }
+
+    .contact-info {
+        gap: 25px;
+    }
+
+    .contact-map iframe {
+        width: 100%;
+        height: 300px;
+    }
 }

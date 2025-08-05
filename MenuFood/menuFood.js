@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const menuList = document.querySelector(".menu-list");
   const filterButtons = document.querySelectorAll(".filter-btn");
   const sortSelect = document.getElementById("sort-select");
-  const searchInput = document.getElementById("search-input"); // Lấy tham chiếu đến thanh tìm kiếm
+  const searchInput = document.querySelector(".header-right-search input");
 
   // --- Main Function to Render Dishes ---
   function renderDishes() {

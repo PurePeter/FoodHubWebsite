@@ -69,10 +69,10 @@
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.footer-column ul li i{
+.footer-column ul li i {
     font-size: 1.4rem;
     margin-right: 6px;
-}   
+}
 
 .social-icons a {
     color: #ccc;
@@ -94,4 +94,25 @@
     padding-top: 20px;
     font-size: 1.4rem;
     color: #888;
+}
+
+/* BREAKPOINT RESPONSIVE */
+@media (max-width: 992px) {}
+
+@media (max-width: 768px) {
+
+    /* Footer area */
+    .footer-column h3::after {
+        bottom: -10px;
+    }
+
+    .footer-column h3 {
+        text-align: center;
+    }
+
+    .footer-column p,
+    .footer-column ul,
+    .footer-column .social-icons {
+        text-align: center;
+    }
 }

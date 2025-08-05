@@ -19,27 +19,46 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body class="guest">
+<body>
     <!-- Header -->
     <div class="header">
         <a class="link-avatarFood" href="#home"><img class="avatarFood" src="./assets/img/avatarFood.png"
-                alt="Avatar food"></a>
+                alt="Avatar food">
+        </a>
+
+        <input type="checkbox" id="check">
+        <label for="check" class="icons">
+            <i class="fa-solid fa-bars" id="menu-icon"></i>
+            <i class="fa-solid fa-xmark" id="close-icon"></i>
+        </label>
+
         <div class="header-navigate">
             <nav>
-                <a class="active" href="#home">Home</a>
-                <a href="#about">Về chúng tôi</a>
-                <a href="#contact">Liên hệ</a>
-                <a href="./MenuFood/menuFood.html">Thực đơn</a>
-                <a href="./booking/booking.html">Đặt bàn</a>
+                <a class="active" href="#home" style="--i:0;">Home</a>
+                <a href="#about" style="--i:1;">Về chúng tôi</a>
+                <a href="#contact" style="--i:2;">Liên hệ</a>
+                <a href="./MenuFood/menuFood.html" style="--i:3;">Thực đơn</a>
+                <a href="./booking/booking.html" style="--i:4;">Đặt bàn</a>
                 <div class="nav-underline"></div>
             </nav>
         </div>
 
         <div class="header-right">
+            <input type="checkbox" id="search-check">
             <div class="header-right-search">
-                <input type="text" name="search" placeholder="Tìm kiếm...">
-                <i class="fa-solid fa-magnifying-glass" title="Tìm kiếm"></i>
+                <input type="text" name="search" placeholder="Tìm kiếm món ăn...">
+                <i class="fa-solid fa-xmark clear-icon"></i>
+                <label for="search-check" class="search-icon">
+                    <i class="fa-solid fa-magnifying-glass" title="Tìm kiếm"></i>
+                </label>
             </div>
+
+            <input type="checkbox" id="user-menu-check">
+            <label for="user-menu-check" class="icons-user-menu">
+                <i class="fa-solid fa-ellipsis" id="menu-icon"></i>
+                <i class="fa-solid fa-xmark" id="close-icon"></i>
+            </label>
+
             <div class="header-right-user-menu">
                 <a href="./Login/index.html" title="Đăng nhập" target="_self" class="login-btn">Đăng nhập</a>
                 <div class="notification-wrapper">
@@ -56,7 +75,41 @@
                                     <div class="notification-info">
                                         <div class="notification-name">Khuyến mãi salad mùa hè!</div>
                                         <div class="notificaiton-desc">Giảm giá 20% cho tất cả các món salafdfd.</div>
+                                        <div class="notification-time">30 phút trước</div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="notification-item">
+                                <a href="#">
+                                    <img src="./assets/img/pizza.jpg" alt="Pizza" class="notification-img">
+                                    <div class="notification-info">
+                                        <div class="notification-name">Pizza thứ tư siêu ưu đãi!</div>
+                                        <div class="notificaiton-desc">Mua 2 tặng 1 áp dụng cho size M và size L</div>
+                                        <div class="notification-time">50 phút trước</div>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="notification-item">
+                                <a href="#">
+                                    <img src="./assets/img/drink.png" alt="Drink" class="notification-img">
+                                    <div class="notification-info">
+                                        <div class="notification-name">Tặng nước miễn phí!</div>
+                                        <div class="notificaiton-desc">Gọi món combo sẽ được tặng 1 nước ngẫu nhiên.
+                                        </div>
                                         <div class="notification-time">1 giờ trước</div>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="notification-item">
+                                <a href="#">
+                                    <img src="./assets/img/burger.jpg" alt="Burger" class="notification-img">
+                                    <div class="notification-info">
+                                        <div class="notification-name">Burger ngày chủ nhật!</div>
+                                        <div class="notificaiton-desc">Giảm 25% cho tất cả các loại burger hôm nay.
+                                        </div>
+                                        <div class="notification-time">2 giờ trước</div>
                                     </div>
                                 </a>
                             </li>
@@ -67,7 +120,8 @@
                     </div>
                 </div>
                 <div class="user-avatar-wrapper">
-                    <img src="./assets/img/unknownAvatarUser.png" alt="Người vô danh" title="Thông tin cá nhân">
+                    <div><img src="./assets/img/unknownAvatarUser.png" alt="Người vô danh" title="Thông tin cá nhân">
+                    </div>
                     <div class="user-dropdown-menu">
                         <a href="#">Thông tin cá nhân</a>
                         <a href="#">Yêu thích</a>

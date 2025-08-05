@@ -24,22 +24,40 @@
     <div class="header">
         <a class="link-avatarFood" href="../index.html"><img class="avatarFood" src="../assets/img/avatarFood.png"
                 alt="Avatar food"></a>
+
+        <input type="checkbox" id="check">
+        <label for="check" class="icons">
+            <i class="fa-solid fa-bars" id="menu-icon"></i>
+            <i class="fa-solid fa-xmark" id="close-icon"></i>
+        </label>
+
         <div class="header-navigate">
             <nav>
-                <a href="../index.html#home">Home</a>
-                <a href="../index.html#about">Về chúng tôi</a>
-                <a href="../index.html#contact">Liên hệ</a>
-                <a class="active" href="../MenuFood/menuFood.html">Thực đơn</a>
-                <a href="../booking/booking.html">Đặt bàn</a>
+                <a href="../index.html#home" style="--i:0;">Home</a>
+                <a href="../index.html#about" style="--i:1;">Về chúng tôi</a>
+                <a href="../index.html#contact" style="--i:2;">Liên hệ</a>
+                <a class="active" href="../MenuFood/menuFood.html" style="--i:3;">Thực đơn</a>
+                <a href="../booking/booking.html" style="--i:4;">Đặt bàn</a>
                 <div class="nav-underline"></div>
             </nav>
         </div>
 
         <div class="header-right">
+            <input type="checkbox" id="search-check">
             <div class="header-right-search">
-                <input type="text" name="search" id="search-input" placeholder="Tìm kiếm...">
-                <i class="fa-solid fa-magnifying-glass" title="Tìm kiếm"></i>
+                <input type="text" name="search" placeholder="Tìm kiếm món ăn...">
+                <i class="fa-solid fa-xmark clear-icon"></i>
+                <label for="search-check" class="search-icon">
+                    <i class="fa-solid fa-magnifying-glass" title="Tìm kiếm"></i>
+                </label>
             </div>
+
+            <input type="checkbox" id="user-menu-check">
+            <label for="user-menu-check" class="icons-user-menu">
+                <i class="fa-solid fa-ellipsis" id="menu-icon"></i>
+                <i class="fa-solid fa-xmark" id="close-icon"></i>
+            </label>
+
             <div class="header-right-user-menu">
                 <a href="../Login/index.html" title="Đăng nhập" target="_self" class="login-btn">Đăng nhập</a>
                 <div class="notification-wrapper">

@@ -170,3 +170,56 @@
     opacity: 1;
     transform: translateY(0);
 }
+
+/* BREAKPOINT RESPONSIVE */
+/* For moblie */
+@media (max-width: 768px) {
+
+    /* Control Sort */
+    .menu-main {
+        padding: 30px 0;
+    }
+
+    .menu-controls {
+        margin: 0 auto 25px;
+    }
+
+    .filter-buttons {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        min-width: 0;
+        width: 100%;
+        padding-bottom: 16px;
+        scrollbar-width: thin;
+        scrollbar-color: #ff6347 transparent;
+    }
+
+    .filter-btn {
+        padding: 12px 20px;
+        white-space: nowrap;
+        flex: 0 0 auto;
+    }
+
+    .sort-options {
+        margin-top: -8px;
+    }
+
+    /* Container */
+    .menu-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .menu-item img {
+        height: 120px;
+    }
+
+    .menu-item h2 {
+        margin: 10px 10px 5px;
+    }
+
+    .menu-item p {
+        padding: 0 10px;
+        margin-top: 0;
+    }
+}

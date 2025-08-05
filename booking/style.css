@@ -20,11 +20,11 @@ body {
 /* Kế thừa các style chung từ base.css */
 
 .main-container {
-    padding: 60px 20px 40px; 
+    padding: 60px 20px 40px;
     max-width: 1200px;
     margin: 0 auto;
     background-color: #fff;
-    min-height: calc(100vh - 230px); 
+    min-height: calc(100vh - 230px);
 }
 
 #booking-section {
@@ -72,7 +72,7 @@ body {
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 1.6rem;
-    box-sizing: border-box; 
+    box-sizing: border-box;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -198,10 +198,10 @@ body {
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.footer-column ul li i{
+.footer-column ul li i {
     font-size: 1.4rem;
     margin-right: 6px;
-}   
+}
 
 .social-icons a {
     color: #ccc;
@@ -223,4 +223,21 @@ body {
     padding-top: 20px;
     font-size: 1.4rem;
     color: #888;
+}
+
+/* BREAKPOINT RESPONSIVE */
+/* For moblie */
+@media (max-width: 768px) {
+    .main-container {
+        padding: 30px 20px 30px;
+    }
+
+    #booking-section {
+        padding: 25px;
+    }
+
+    #booking-section p {
+        font-size: 1.4rem;
+        margin-bottom: 20px;
+    }
 }
