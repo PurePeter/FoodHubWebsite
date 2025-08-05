@@ -108,7 +108,10 @@ document.addEventListener("DOMContentLoaded", function () {
     function performSearch() {
         const searchTerm = searchInput.value.trim();
         if (searchTerm) {
-            const menuPageUrl = window.location.pathname.includes("index.html")
+            const path = window.location.pathname;
+            const pageName = path.substring(path.lastIndexOf('/') + 1);
+            const isRootPage = pageName === '' || pageName === 'index.html';
+            const menuPageUrl = isRootPage
                 ? "./MenuFood/menuFood.html"
                 : "../MenuFood/menuFood.html";
             window.location.href = `${menuPageUrl}?search=${encodeURIComponent(searchTerm)}`;
