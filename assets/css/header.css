@@ -110,7 +110,7 @@
 
 .header-right-search .clear-icon {
     position: absolute;
-    right: 35px;
+    right: 45px;
     padding: 10px;
     cursor: pointer;
     transition: color 0.35s ease;
@@ -451,8 +451,9 @@
     }
 
     .icons-user-menu {
-        display: block;
-        position: static;
+        display: inline-flex;
+        position: relative;
+        z-index: 1;
     }
 
     .header-right-user-menu {
@@ -696,8 +697,9 @@
     }
 
     .icons-user-menu {
-        display: block;
-        position: static;
+        display: inline-flex;
+        position: relative;
+        z-index: 1;
     }
 
     .header-right-user-menu {
@@ -886,7 +888,7 @@
 
     .header.search-active .header-right-search input {
         width: 60vw;
-        padding: 10px;
+        padding: 10px 40px 10px 10px;
         opacity: 1;
     }
 
