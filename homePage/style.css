@@ -449,15 +449,6 @@ section>p {
 }
 
 /* Responsive */
-.icons {
-    position: absolute;
-    right: 5%;
-    font-size: 2.4rem;
-    color: var(--white-color);
-    cursor: pointer;
-    display: none;
-}
-
 #check {
     display: none;
 }

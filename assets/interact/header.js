@@ -93,7 +93,11 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!notificationMenu) return;
         const isGuest = document.body.classList.contains("guest");
         if (isGuest) {
-            notificationMenu.innerHTML = '<p href="./Login/index.html" class="user-dropdown-menu-guest-link">Bạn cần đăng nhập để xem thông báo!</p>';
+            const path = window.location.pathname;
+            const pageName = path.substring(path.lastIndexOf('/') + 1);
+            const isRootPage = pageName === '' || pageName === 'index.html';
+            const loginUrl = isRootPage ? "./Login/index.html" : "../Login/index.html";
+            notificationMenu.innerHTML = `<a href="${loginUrl}" class="user-dropdown-menu-guest-link">Bạn cần đăng nhập để xem thông báo!</a>`;
         }
     }
 

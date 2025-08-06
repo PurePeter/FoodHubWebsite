@@ -401,9 +401,6 @@
 }
 
 .icons-user-menu {
-    position: absolute;
-    top: 30%;
-    right: 15%;
     font-size: 2.4rem;
     color: var(--white-color);
     cursor: pointer;
@@ -416,17 +413,10 @@
 }
 
 /* BREAKPOINT */
-@media (max-width: 992px) {
-    .header {
-        padding: 1.3rem 5%;
-    }
-}
-
-@media (max-width: 768px) {
-
-    /* Header */
+@media (min-width: 601px) and (max-width: 1200px) {
     .header {
         justify-content: space-between;
+        padding: 1.3rem 5%;
     }
 
     .header .avatarFood {
@@ -462,8 +452,7 @@
 
     .icons-user-menu {
         display: block;
-        margin-right: 2px;
-        z-index: 1000;
+        position: static;
     }
 
     .header-right-user-menu {
@@ -553,7 +542,12 @@
 
     /* Header-right */
     .header-right {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        min-width: 80px;
         margin-right: 40px;
+        justify-content: flex-end;
     }
 
     .header-navigate nav {
@@ -609,7 +603,6 @@
     .header-right-search {
         position: relative;
         display: flex;
-        margin-right: 35px;
     }
 
     #search-check {
@@ -642,12 +635,258 @@
     .header-right-search input {
         width: 0;
         opacity: 0;
+        padding: 10px;
         transition: width 0.5s ease, opacity 0.5s ease;
     }
 
     .header.search-active .header-right-search input {
         width: 60vw;
-        padding: 12px;
+        padding: 10px;
+        opacity: 1;
+    }
+
+    .clear-icon {
+        display: none;
+        position: absolute;
+        right: 45px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        color: #999;
+    }
+}
+
+@media (max-width: 600px) {
+
+    /* Header */
+    .header {
+        justify-content: space-between;
+        padding: 1.3rem 5%;
+    }
+
+    .header .avatarFood {
+        height: 45px;
+        width: 45px;
+    }
+
+    .icons {
+        display: inline-flex;
+    }
+
+    /* Header right user */
+
+    #user-menu-check:checked~.icons-user-menu #menu-icon {
+        display: none;
+    }
+
+    .icons-user-menu #close-icon {
+        display: none;
+    }
+
+    #user-menu-check:checked~.icons-user-menu #close-icon {
+        display: block;
+    }
+
+    #check:checked~.icons #menu-icon {
+        display: none;
+    }
+
+    .icons #close-icon {
+        display: none;
+    }
+
+    .icons-user-menu {
+        display: block;
+        position: static;
+    }
+
+    .header-right-user-menu {
+        position: absolute;
+        top: 100%;
+        right: 5%;
+        width: 60%;
+        height: 0;
+        overflow: hidden;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        background: #b253e1;
+        backdrop-filter: blur(50px);
+        box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        transform: scaleY(0);
+        transition: 0.3s ease;
+    }
+
+    .header-right-user-menu::before {
+        content: '';
+        position: absolute;
+        top: -30px;
+        right: 25px;
+        z-index: -1;
+        border-style: solid;
+        border-color: transparent transparent #b253e1 transparent;
+        border-width: 20px 26px;
+    }
+
+    #check:checked~.icons #close-icon {
+        display: block;
+    }
+
+    .header-right-user-menu .login-btn {
+        margin: 0 5px;
+    }
+
+    .notification-wrapper {
+        margin-left: 0;
+    }
+
+    .header-right-user-menu .login-btn,
+    .notification-btn {
+        margin-right: 5px;
+    }
+
+    .user-avatar-wrapper img {
+        margin-top: 3px;
+    }
+
+    #user-menu-check:checked~.header-right-user-menu {
+        height: 55px;
+        overflow: visible;
+        opacity: 1;
+        transform: scaleY(1);
+        pointer-events: auto;
+    }
+
+    /* Info notification */
+    .notification-dropdown-menu {
+        width: 345px;
+        right: -60px;
+    }
+
+    .notification-dropdown-menu::before {
+        right: 55px;
+    }
+
+    .notification-list {
+        width: 345px;
+    }
+
+    .notificaiton-desc {
+        max-width: 250px;
+    }
+
+    .notification-time {
+        font-size: 1.3rem;
+        margin-right: 0;
+    }
+
+    .notification-name {
+        font-weight: 700;
+    }
+
+
+    /* Header-right */
+    .header-right {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        min-width: 80px;
+        margin-right: 40px;
+        justify-content: flex-end;
+    }
+
+    .header-navigate nav {
+        position: absolute;
+        display: block;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+        background: rgba(0, 0, 0, 0.15);
+        backdrop-filter: blur(50px);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: 0.3s ease;
+    }
+
+    #check:checked~.header-navigate nav {
+        height: 25rem;
+    }
+
+    .header-navigate nav a {
+        display: block;
+        font-size: 1.6rem;
+        color: var(--white-color);
+        text-align: center;
+        width: 100%;
+        height: 50px;
+        line-height: 50px;
+        font-weight: 500;
+        opacity: 0;
+        transform: translateY(-50px);
+        transition: 0.3s ease;
+    }
+
+    .header-navigate nav a:hover {
+        background: transparent;
+        color: var(--primary);
+        font-weight: 600;
+    }
+
+    #check:checked~.header-navigate nav a {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: calc(0.15s * var(--i));
+    }
+
+    .nav-underline {
+        display: none;
+    }
+
+    /* Check search area */
+
+    .header-right-search {
+        position: relative;
+        display: flex;
+    }
+
+    #search-check {
+        display: none;
+    }
+
+    .header-right-search .search-icon {
+        display: block;
+        cursor: pointer;
+        background: transparent;
+    }
+
+    .header-right-search .search-icon:hover {
+        background: transparent;
+    }
+
+    .header-right-search .search-icon i {
+        background-color: transparent;
+        color: var(--white-color);
+        font-size: 2.2rem;
+        padding: 0;
+    }
+
+    .header-right-search .search-icon i:hover {
+        background-color: transparent;
+        color: var(--white-color);
+        font-size: 2.2rem;
+    }
+
+    .header-right-search input {
+        width: 0;
+        opacity: 0;
+        padding: 10px;
+        transition: width 0.5s ease, opacity 0.5s ease;
+    }
+
+    .header.search-active .header-right-search input {
+        width: 60vw;
+        padding: 10px;
         opacity: 1;
     }
 
