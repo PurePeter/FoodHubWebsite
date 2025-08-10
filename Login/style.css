@@ -364,8 +364,10 @@ button {
 
 .notification-message {
     flex-grow: 1;
-    max-height: 100px; /* Limit height for long messages */
-    overflow-y: auto; /* Add scroll for overflow */
+    max-height: 100px;
+    /* Limit height for long messages */
+    overflow-y: auto;
+    /* Add scroll for overflow */
 }
 
 .notification-close {
@@ -400,7 +402,7 @@ button {
 
 
 /* Responsive for phone */
-@media (max-width: 739px) {
+@media (max-width: 639px) {
     .main-container {
         flex-direction: column-reverse;
         align-items: center;
@@ -434,22 +436,22 @@ button {
     }
 
     .input-group input {
-        width: calc(100% - 40px); /* Adjust width to make space for icon */
-        padding-right: 40px; /* Ensure padding for icon */
+        width: 100%;
+        padding-right: 42px;
     }
 
     .input-group i {
-        right: 0px; /* Keep icon at the right edge */
+        right: 0px;
     }
 
     .notification {
-        width: calc(100% - 40px); /* Adjust width to fit screen */
-        left: 20px; /* Position from left */
-        right: 20px; /* Position from right */
-        transform: translateX(120%); /* Keep initial hidden state */
+        width: calc(100% - 40px);
+        left: 20px;
+        right: 20px;
+        transform: translateX(120%);
     }
 
     .notification.show {
-        transform: translateX(0); /* Slide in from right */
+        transform: translateX(0);
     }
 }
