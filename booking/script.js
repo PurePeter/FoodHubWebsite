@@ -1,17 +1,26 @@
 document.addEventListener("DOMContentLoaded", function () {
   // --- Logic for booking form ---
-  // Assume login status is stored in localStorage
-  // On successful login: localStorage.setItem('isLoggedIn', 'true');
-  // On logout: localStorage.removeItem('isLoggedIn');
-  const isLoggedIn = localStorage.getItem("isLoggedIn");
+  // The session is now managed by assets/interact/header.js
+  // This script just needs to check for the existence of the user object
+  const loggedInUser = localStorage.getItem("loggedInUser");
 
   const bookingContent = document.getElementById("booking-content");
   const loginMessage = document.getElementById("login-required-message");
 
-  if (isLoggedIn === "true") {
+  if (loggedInUser) {
     // User is logged in, show the booking form
     if (bookingContent) bookingContent.style.display = "block";
     if (loginMessage) loginMessage.style.display = "none";
+
+    // Pre-fill user data if available
+    const user = JSON.parse(loggedInUser);
+    const nameInput = document.getElementById("name");
+    const phoneInput = document.getElementById("phone"); // Assuming phone is not in user object
+
+    if (nameInput && user.username) {
+        nameInput.value = user.username;
+    }
+
   } else {
     // User is not logged in, show a message and the login prompt
     if (bookingContent) bookingContent.style.display = "none";

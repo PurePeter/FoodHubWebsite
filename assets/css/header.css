@@ -66,7 +66,7 @@
     width: 120px;
     background-color: #fe2389;
     border-radius: 10px;
-    transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1), width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 1;
 }
 
@@ -92,6 +92,7 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    margin-right: 2px;
 }
 
 #search-check {
@@ -110,7 +111,7 @@
 
 .header-right-search .clear-icon {
     position: absolute;
-    right: 45px;
+    right: 31px;
     padding: 10px;
     cursor: pointer;
     transition: color 0.35s ease;
@@ -515,16 +516,23 @@
 
     /* Info notification */
     .notification-dropdown-menu {
-        width: 345px;
-        right: -60px;
+        width: 90vw;
+        max-width: 400px;
+        right: -161px;
+        top: calc(100% + 15px);
     }
 
     .notification-dropdown-menu::before {
-        right: 55px;
+        /* The little arrow needs to be centered as well */
+        right: 50%;
+        transform: translateX(50%);
+        margin-right: -18px;
+        /* Adjust to align with the notification icon */
     }
 
     .notification-list {
-        width: 345px;
+        width: 100%;
+        /* Ensure list fills the new dropdown width */
     }
 
     .notificaiton-desc {
@@ -761,16 +769,26 @@
 
     /* Info notification */
     .notification-dropdown-menu {
-        width: 345px;
-        right: -60px;
+        width: 80vw;
+        max-width: 400px;
+        right: -80px;
+        top: calc(100% + 14px);
     }
 
     .notification-dropdown-menu::before {
-        right: 55px;
+        right: 75px;
+    }
+
+    .notification-item a {
+        padding: 10px 12px;
+    }
+
+    .notification-info {
+        width: 80%;
     }
 
     .notification-list {
-        width: 345px;
+        width: 100%;
     }
 
     .notificaiton-desc {
@@ -896,6 +914,10 @@
         opacity: 0;
         visibility: hidden;
         width: 0;
+    }
+
+    .header-right-search .clear-icon {
+        right: 40px;
     }
 
     .clear-icon {

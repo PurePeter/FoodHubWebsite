@@ -19,7 +19,8 @@
         <div class="left-content-wrapper">
             <h2>Chào mừng bạn đến với FoodHub!</h2>
             <p>
-                Đặt món ăn nhanh chóng, khám phá hàng ngàn địa điểm ăn ngon và đọc review chân thực từ cộng đồng.<br><br>
+                Đặt món ăn nhanh chóng, khám phá hàng ngàn địa điểm ăn ngon và đọc review chân thực từ cộng
+                đồng.<br><br>
                 <strong>Đăng ký ngay</strong> để:
             <ul>
                 <li><i class="fa-solid fa-utensils"></i> Đặt món dễ dàng</li>
@@ -34,28 +35,28 @@
                 <form action="">
                     <h2>Đăng Nhập</h2>
                     <div class="input-group">
-                        <input type="text" required placeholder=" ">
-                        <label for="">Tên người dùng</label>
-                        <i class="fa-solid fa-user"></i>
+                        <input type="email" required placeholder=" ">
+                        <label for="">Email</label>
+                        <i class="fa-solid fa-envelope"></i>
                     </div>
-    
+
                     <div class="input-group">
                         <input type="password" required placeholder=" ">
                         <label for="">Mật khẩu</label>
                         <i class="fa-solid fa-eye"></i>
                     </div>
-    
+
                     <div class="remember">
-                        <label><input type="checkbox" required> Nhắc nhở tôi</label>
+                        <label><input type="checkbox"> Nhắc nhở tôi</label>
                         <p><a href="#" class="forgot-link">Quên mật khẩu</a></p>
                     </div>
-    
+
                     <button type="submit">Đăng nhập</button>
-    
+
                     <div class="signUp-link">
                         <p>Bạn chưa có tài khoản? <a href="#" class="signUpBtn-link">Đăng ký ngay</a></p>
                     </div>
-    
+
                     <div class="social-platform">
                         <p>Hoặc đăng nhập với</p>
                         <div class="social-icons">
@@ -65,7 +66,12 @@
                     </div>
                 </form>
             </div>
-    
+
+            <div id="notification" class="notification">
+                <span class="notification-message"></span>
+                <i class="fa-solid fa-xmark notification-close"></i>
+            </div>
+
             <div class="form-wrapper sign-up">
                 <form action="">
                     <h2>Đăng ký</h2>
@@ -74,31 +80,31 @@
                         <label for="">Tên người dùng</label>
                         <i class="fa-solid fa-user"></i>
                     </div>
-    
+
                     <div class="input-group">
                         <input type="email" required placeholder=" ">
                         <label for="">Email</label>
                         <i class="fa-solid fa-envelope"></i>
                     </div>
-    
+
                     <div class="input-group">
                         <input type="password" required placeholder=" ">
                         <label for="">Mật khẩu</label>
                         <i class="fa-solid fa-eye"></i>
                     </div>
-    
+
                     <div class="input-group">
                         <input type="password" required placeholder=" ">
                         <label for="">Xác nhận mật khẩu</label>
                         <i class="fa-solid fa-eye"></i>
                     </div>
-    
+
                     <div class="remember">
                         <label><input type="checkbox"> Tôi đồng ý với các điều khoản và điều kiện</label>
                     </div>
-    
+
                     <button type="submit">Đăng ký</button>
-    
+
                     <div class="signUp-link">
                         <p>Bạn đã có tài khoản rồi? <a href="#" class="signInBtn-link">Đăng nhập</a></p>
                     </div>
@@ -116,18 +122,19 @@
                         <label for="">Email</label>
                         <i class="fa-solid fa-envelope"></i>
                     </div>
-    
+
                     <button type="submit">Gửi Link Reset Password</button>
-    
+
                     <div class="back-link">
-                        <p><a href="#" class="backToSignIn-link"><i class="fa-solid fa-arrow-left"></i> Quay lại đăng nhập</a></p>
+                        <p><a href="#" class="backToSignIn-link"><i class="fa-solid fa-arrow-left"></i> Quay lại đăng
+                                nhập</a></p>
                     </div>
                 </form>
             </div>
         </div>
     </div class="main-container">
 
-    <script src="../assets/interact/script.js"></script>
+    <script src="./script.js"></script>
 </body>
 
 </html>

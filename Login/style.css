@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -104,17 +105,17 @@ body {
 }
 
 .right-wrapper .form-wrapper.forgot-password {
-  position: absolute;
-  top: 0;
-  transform: scale(0) translate(-200px, -500px);
+    position: absolute;
+    top: 0;
+    transform: scale(0) translate(-200px, -500px);
 }
 
 .right-wrapper.forgot-active .form-wrapper.forgot-password {
-  transform: scale(1) translate(0, 0);
+    transform: scale(1) translate(0, 0);
 }
 
 .right-wrapper.forgot-active .form-wrapper.sign-in {
-  transform: scale(0) translate(300px, 500px);
+    transform: scale(0) translate(300px, 500px);
 }
 
 .left-content-wrapper,
@@ -150,21 +151,21 @@ h2 {
     height: 40px;
     font-size: 16px;
     color: #fff;
-    padding: 0 38px 0 5px;
+    padding: 0 40px 0 5px;
     background: transparent;
     border: none;
     outline: none;
     transition: 0.4s;
 }
 
-.input-group input:not(:placeholder-shown) ~ label,
-.input-group input:focus ~ label {
+.input-group input:not(:placeholder-shown)~label,
+.input-group input:focus~label {
     top: -5px;
 }
 
 .input-group input:focus,
-.input-group input:focus ~ i,
-.input-group input:focus ~ label {
+.input-group input:focus~i,
+.input-group input:focus~label {
     color: #fe2389;
 }
 
@@ -211,14 +212,14 @@ h2 {
 }
 
 .forgot-link {
-  color: #f4157e;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
+    color: #f4157e;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
 }
 
 .forgot-link:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 button {
@@ -289,33 +290,33 @@ button {
 }
 
 .back-link {
-  font-size: 14px;
-  text-align: center;
-  margin: 15px 0;
+    font-size: 14px;
+    text-align: center;
+    margin: 15px 0;
 }
 
 .back-link p {
-  color: #fff;
+    color: #fff;
 }
 
 .back-link p a {
-  color: #f4157e;
-  text-decoration: none;
-  font-weight: 500;
+    color: #f4157e;
+    text-decoration: none;
+    font-weight: 500;
 }
 
 .back-link p a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 .forgot-description {
-  color: #fff;
-  font-size: 15px;
-  text-align: center;
-  margin-top: 20px;
-  margin-bottom: 35px;
-  line-height: 1.5;
-  max-width: 320px;
+    color: #fff;
+    font-size: 15px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 35px;
+    line-height: 1.5;
+    max-width: 320px;
 }
 
 @keyframes fadeInUp {
@@ -323,11 +324,78 @@ button {
         opacity: 0;
         transform: translateY(50px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
+
+/* --- Notification Styles --- */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #f44336;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    z-index: 1000;
+    font-size: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    /* To contain the underline */
+
+    /* Hide by default */
+    transform: translateX(120%);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0s linear 0.3s;
+}
+
+.notification.show {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s;
+}
+
+.notification-message {
+    flex-grow: 1;
+}
+
+.notification-close {
+    margin-left: 15px;
+    cursor: pointer;
+    padding: 5px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.notification-underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 100%;
+}
+
+.notification.show .notification-underline {
+    animation: shrink 3s linear forwards;
+}
+
+@keyframes shrink {
+    from {
+        width: 100%;
+    }
+
+    to {
+        width: 0%;
+    }
+}
+
 
 /* Responsive for phone */
 @media (max-width: 739px) {
@@ -362,5 +430,8 @@ button {
     .form-wrapper.forgot-password {
         width: 85%;
     }
-    
+
+    .input-group input {
+        width: 100%;
+    }
 }
