@@ -364,6 +364,8 @@ button {
 
 .notification-message {
     flex-grow: 1;
+    max-height: 100px; /* Limit height for long messages */
+    overflow-y: auto; /* Add scroll for overflow */
 }
 
 .notification-close {
@@ -432,6 +434,22 @@ button {
     }
 
     .input-group input {
-        width: 100%;
+        width: calc(100% - 40px); /* Adjust width to make space for icon */
+        padding-right: 40px; /* Ensure padding for icon */
+    }
+
+    .input-group i {
+        right: 0px; /* Keep icon at the right edge */
+    }
+
+    .notification {
+        width: calc(100% - 40px); /* Adjust width to fit screen */
+        left: 20px; /* Position from left */
+        right: 20px; /* Position from right */
+        transform: translateX(120%); /* Keep initial hidden state */
+    }
+
+    .notification.show {
+        transform: translateX(0); /* Slide in from right */
     }
 }

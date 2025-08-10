@@ -222,10 +222,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const logoutLink = Array.from(allLinks).find(link => link.textContent.trim() === 'Đăng xuất');
 
                 if (logoutLink) {
-                    const newLogoutLink = logoutLink.cloneNode(true);
-                    logoutLink.parentNode.replaceChild(newLogoutLink, logoutLink);
-                    
-                    newLogoutLink.addEventListener('click', (e) => {
+                    logoutLink.addEventListener('click', (e) => {
                         e.preventDefault();
                         this.logout('Bạn đã đăng xuất thành công.');
                     });

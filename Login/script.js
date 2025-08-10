@@ -62,7 +62,7 @@ const showNotification = (message, isSuccess) => {
 
   // Set timeout to hide
   // Set timeout to hide
-    notificationTimeout = setTimeout(hideNotification, 3000);
+  notificationTimeout = setTimeout(hideNotification, 3000);
 };
 
 notificationClose.addEventListener("click", hideNotification);
@@ -76,8 +76,8 @@ const handleLoginSuccess = (user) => {
   }, 1000);
 };
 
-// Xử lý form đăng nhập
-signInForm.addEventListener("submit", async (e) => {
+// Hàm xử lý submit form đăng nhập
+const handleSignInSubmit = async (e) => {
   e.preventDefault();
 
   const email = signInForm.querySelector('input[type="email"]').value;
@@ -99,10 +99,10 @@ signInForm.addEventListener("submit", async (e) => {
   } catch (error) {
     showNotification("Lỗi kết nối máy chủ. Vui lòng thử lại.", false);
   }
-});
+};
 
-// Xử lý form đăng ký
-signUpForm.addEventListener("submit", async (e) => {
+// Hàm xử lý submit form đăng ký
+const handleSignUpSubmit = async (e) => {
   e.preventDefault();
 
   const username = signUpForm.querySelector('input[type="text"]').value;
@@ -139,6 +139,32 @@ signUpForm.addEventListener("submit", async (e) => {
   } catch (error) {
     showNotification("Lỗi kết nối máy chủ. Vui lòng thử lại.", false);
   }
+};
+
+// Xử lý form đăng nhập
+signInForm.addEventListener("submit", handleSignInSubmit);
+
+// Xử lý form đăng ký
+signUpForm.addEventListener("submit", handleSignUpSubmit);
+
+// Thêm sự kiện keydown cho các input trong form đăng nhập
+signInForm.querySelectorAll("input").forEach(input => {
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault(); // Ngăn chặn hành vi mặc định của Enter (ví dụ: xuống dòng)
+      signInForm.dispatchEvent(new Event('submit')); // Kích hoạt sự kiện submit của form
+    }
+  });
+});
+
+// Thêm sự kiện keydown cho các input trong form đăng ký
+signUpForm.querySelectorAll("input").forEach(input => {
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault(); // Ngăn chặn hành vi mặc định của Enter
+      signUpForm.dispatchEvent(new Event('submit')); // Kích hoạt sự kiện submit của form
+    }
+  });
 });
 
 // --- Other event listeners (unchanged) ---
