@@ -7,6 +7,7 @@ require("dotenv").config(); // Nạp biến môi trường
 
 const Dish = require("./models/Dish");
 const User = require('./models/User'); // Import User model
+const BannerSlide = require('./models/BannerSlide'); // Import BannerSlide model
 
 const app = express();
 const port = 3001;
@@ -139,6 +140,20 @@ app.post("/api/login", async (req, res) => {
   }
 });
 
+
+// Endpoint để lấy tất cả banner slides
+app.get("/api/bannerslides", async (req, res) => {
+  try {
+    const bannerSlides = await BannerSlide.find({});
+    res.json(bannerSlides);
+  } catch (error) {
+    console.error("Error fetching banner slides:", error);
+    res.status(500).json({ 
+      message: "Server error when fetching banner slides", 
+      error: error.message 
+    });
+  }
+});
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

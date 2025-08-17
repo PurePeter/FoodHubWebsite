@@ -7,6 +7,7 @@ const path = require("path"); // Import module path để xử lý đường d�
 console.log("Giá trị MONGODB_URI được nạp:", process.env.MONGODB_URI);
 
 const Dish = require("./models/Dish"); // Import model
+const BannerSlide = require("./models/BannerSlide"); // Import BannerSlide model
 
 // Hàm để đọc file ảnh và trả về Buffer cùng với contentType
 async function getImageData(imagePath) {
@@ -152,6 +153,19 @@ const seedDB = async () => {
     // Thêm dữ liệu mới
     await Dish.insertMany(dishesToInsert);
     console.log("Đã thêm dữ liệu món ăn thành công!");
+
+    // --- SEED BANNER SLIDES ---
+    const bannerSlideData = [
+      { imageUrl: "../assets/img/FoodMenuBanner.webp" },
+      { imageUrl: "../assets/img/FoodBannerNoodle.webp" },
+      { imageUrl: "../assets/img/FoodBannerSalad.webp" },
+    ];
+
+    await BannerSlide.deleteMany({});
+    console.log('Đã xóa dữ liệu cũ trong collection "bannerslides".');
+
+    await BannerSlide.insertMany(bannerSlideData);
+    console.log("Đã thêm dữ liệu banner slide thành công!");
   } catch (error) {
     console.error("Lỗi khi thêm dữ liệu:", error);
   } finally {

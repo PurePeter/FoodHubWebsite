@@ -22,34 +22,44 @@ document.addEventListener('DOMContentLoaded', function() {
     const slider = document.querySelector('.banner-slider');
     if (slider) {
         const slidesWrapper = slider.querySelector('.slides-wrapper');
-        const slides = slider.querySelectorAll('.slide');
         const dotsContainer = slider.querySelector('.dots-container');
         const prevBtn = slider.querySelector('.prev');
         const nextBtn = slider.querySelector('.next');
         let slideIndex = 0;
         let slideInterval;
+        let slides = [];
+        let dots = [];
 
-        // Tạo các nốt chấm tương ứng với số lượng slide
-        slides.forEach((_, index) => {
-            const dot = document.createElement('span');
-            dot.classList.add('dot');
-            dot.dataset.slide = index;
-            dotsContainer.appendChild(dot);
-        });
+        function initSlider() {
+            slides = slider.querySelectorAll('.slide');
+            dots = dotsContainer.querySelectorAll('.dot');
 
-        const dots = dotsContainer.querySelectorAll('.dot');
+            slides.forEach((_, index) => {
+                const dot = document.createElement('span');
+                dot.classList.add('dot');
+                dot.dataset.slide = index;
+                dotsContainer.appendChild(dot);
+            });
+
+            dots = dotsContainer.querySelectorAll('.dot');
+
+            dots.forEach(dot => {
+                dot.addEventListener('click', (e) => {
+                    const slideNumber = parseInt(e.target.dataset.slide);
+                    showSlide(slideNumber);
+                    startSlideShow();
+                });
+            });
+
+            showSlide(slideIndex);
+            startSlideShow();
+        }
 
         function showSlide(n) {
-            // Xử lý vòng lặp cho index
             slideIndex = (n + slides.length) % slides.length;
-
-            // Di chuyển wrapper của các slide để tạo hiệu ứng trượt
             slidesWrapper.style.transform = `translateX(-${slideIndex * 100}%)`;
-
-            // Cập nhật class 'active' cho slide và dot để tạo hiệu ứng phóng to
             slides.forEach(slide => slide.classList.remove('active'));
             dots.forEach(dot => dot.classList.remove('active'));
-
             slides[slideIndex].classList.add('active');
             dots[slideIndex].classList.add('active');
         }
@@ -63,18 +73,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         function startSlideShow() {
-            stopSlideShow(); // Dừng slideshow cũ trước khi bắt đầu cái mới
-            slideInterval = setInterval(nextSlide, 5000); // Tự động chuyển ảnh sau 5 giây
+            stopSlideShow();
+            slideInterval = setInterval(nextSlide, 5000);
         }
 
         function stopSlideShow() {
             clearInterval(slideInterval);
         }
 
-        // Gán sự kiện click cho các nút
         prevBtn.addEventListener('click', () => {
             prevSlide();
-            startSlideShow(); // Reset lại bộ đếm thời gian khi người dùng tương tác
+            startSlideShow();
         });
 
         nextBtn.addEventListener('click', () => {
@@ -82,18 +91,20 @@ document.addEventListener('DOMContentLoaded', function() {
             startSlideShow();
         });
 
-        dots.forEach(dot => {
-            dot.addEventListener('click', (e) => {
-                const slideNumber = parseInt(e.target.dataset.slide);
-                showSlide(slideNumber);
-                startSlideShow();
-            });
-        });
-
-        // Khởi chạy slider
-        showSlide(slideIndex);
-        startSlideShow();
+        fetch('http://localhost:3001/api/bannerslides')
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(slideData => {
+                    const slide = document.createElement('div');
+                    slide.classList.add('slide');
+                    const img = document.createElement('img');
+                    img.src = slideData.imageUrl.replace('..', '.');
+                    img.alt = 'FoodHub Banner';
+                    slide.appendChild(img);
+                    slidesWrapper.appendChild(slide);
+                });
+                initSlider();
+            })
+            .catch(error => console.error('Error fetching banner slides:', error));
     }
-
-    
 });
