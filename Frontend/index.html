@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ chính</title>
+    <link rel="stylesheet" href="./homePage/style.css">
+    <link rel="stylesheet" href="./assets/css/base.css">
+    <link rel="stylesheet" href="./assets/css/header.css">
+    <link rel="stylesheet" href="./assets/css/footer.css">
+    <link rel="icon" type="image/jpg" href="./assets/img/avatarFood.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="header">
+        <a class="link-avatarFood" href="#home"><img class="avatarFood" src="./assets/img/avatarFood.png"
+                alt="Avatar food">
+        </a>
+
+        <input type="checkbox" id="check">
+        <label for="check" class="icons">
+            <i class="fa-solid fa-bars" id="menu-icon"></i>
+            <i class="fa-solid fa-xmark" id="close-icon"></i>
+        </label>
+
+        <div class="header-navigate">
+            <nav>
+                <a class="active" href="#home" style="--i:0;">Home</a>
+                <a href="#about" style="--i:1;">Về chúng tôi</a>
+                <a href="#contact" style="--i:2;">Liên hệ</a>
+                <a href="./MenuFood/menuFood.html" style="--i:3;">Thực đơn</a>
+                <a href="./booking/booking.html" style="--i:4;">Đặt bàn</a>
+                <div class="nav-underline"></div>
+            </nav>
+        </div>
+
+        <div class="header-right">
+            <input type="checkbox" id="search-check">
+            <div class="header-right-search">
+                <input type="text" name="search" placeholder="Tìm kiếm món ăn...">
+                <i class="fa-solid fa-xmark clear-icon"></i>
+                <label for="search-check" class="search-icon">
+                    <i class="fa-solid fa-magnifying-glass" title="Tìm kiếm"></i>
+                </label>
+            </div>
+
+            <input type="checkbox" id="user-menu-check">
+            <label for="user-menu-check" class="icons-user-menu">
+                <i class="fa-solid fa-ellipsis" id="menu-icon"></i>
+                <i class="fa-solid fa-xmark" id="close-icon"></i>
+            </label>
+
+            <div class="header-right-user-menu">
+                <a href="./Login/index.html" title="Đăng nhập" target="_self" class="login-btn">Đăng nhập</a>
+                <div class="notification-wrapper">
+                    <span class="notification-btn" title="Thông báo">
+                        <i class="fa-solid fa-bell"></i>
+                    </span>
+                    <!-- Notification Dropdown -->
+                    <div class="notification-dropdown-menu">
+                        <h3 class="notification-header">Thông báo</h3>
+                        <ul class="notification-list">
+                            <li class="notification-item">
+                                <a href="#">
+                                    <img src="./assets/img/salad.jpg" alt="Salad" class="notification-img">
+                                    <div class="notification-info">
+                                        <div class="notification-name">Khuyến mãi salad mùa hè!</div>
+                                        <div class="notificaiton-desc">Giảm giá 20% cho tất cả các món salafdfd.</div>
+                                        <div class="notification-time">30 phút trước</div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="notification-item">
+                                <a href="#">
+                                    <img src="./assets/img/pizza.jpg" alt="Pizza" class="notification-img">
+                                    <div class="notification-info">
+                                        <div class="notification-name">Pizza thứ tư siêu ưu đãi!</div>
+                                        <div class="notificaiton-desc">Mua 2 tặng 1 áp dụng cho size M và size L</div>
+                                        <div class="notification-time">50 phút trước</div>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="notification-item">
+                                <a href="#">
+                                    <img src="./assets/img/drink.png" alt="Drink" class="notification-img">
+                                    <div class="notification-info">
+                                        <div class="notification-name">Tặng nước miễn phí!</div>
+                                        <div class="notificaiton-desc">Gọi món combo sẽ được tặng 1 nước ngẫu nhiên.
+                                        </div>
+                                        <div class="notification-time">1 giờ trước</div>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="notification-item">
+                                <a href="#">
+                                    <img src="./assets/img/burger.jpg" alt="Burger" class="notification-img">
+                                    <div class="notification-info">
+                                        <div class="notification-name">Burger ngày chủ nhật!</div>
+                                        <div class="notificaiton-desc">Giảm 25% cho tất cả các loại burger hôm nay.
+                                        </div>
+                                        <div class="notification-time">2 giờ trước</div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="notification-footer">
+                            <a href="#">Xem tất cả thông báo</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-avatar-wrapper">
+                    <div><img src="./assets/img/unknownAvatarUser.png" alt="Người vô danh" title="Thông tin cá nhân">
+                    </div>
+                    <div class="user-dropdown-menu">
+                        <a href="#">Thông tin cá nhân</a>
+                        <a href="#">Yêu thích</a>
+                        <a href="#">Đơn hàng của tôi</a>
+                        <a href="#">Ngôn ngữ</a>
+                        <a href="#">Đăng xuất</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main container -->
+    <div class="main-container">
+        <!-- Home -->
+        <section id="home" class="intro scroll-reveal">
+            <h1>Chào mừng đến với FoodHub!</h1>
+            <p>Khám phá thực đơn đa dạng, đặt bàn nhanh chóng và trải nghiệm ẩm thực tuyệt vời cùng chúng tôi.</p>
+
+            <!-- Banner Slider -->
+            <div class="banner-slider">
+                <div class="slides-wrapper">
+                </div>
+
+                <a class="prev">&#10094;</a>
+                <a class="next">&#10095;</a>
+
+                <div class="dots-container"></div>
+            </div>
+
+            <div class="home-highlights">
+                <h3>Tại sao chọn FoodHub?</h3>
+                <ul>
+                    <li>Không gian hiện đại, thoáng đãng</li>
+                    <li>Thực đơn phong phú, cập nhật thường xuyên</li>
+                    <li>Đặt bàn online tiện lợi, xác nhận nhanh chóng</li>
+                    <li>Chương trình ưu đãi hấp dẫn mỗi tuần</li>
+                    <li>100% vệ sinh thực phẩm an toàn hài lòng khách hàng</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Về chúng tôi -->
+        <section id="about" class="about-us scroll-reveal">
+            <h2>Về chúng tôi</h2>
+            <p>FoodHub là hệ thống nhà hàng hiện đại, phục vụ các món ăn đa dạng từ Âu sang Á, với đội ngũ đầu bếp
+                chuyên nghiệp và không gian thân thiện. Chúng tôi cam kết mang đến trải nghiệm ẩm thực tuyệt vời nhất
+                cho bạn và gia đình.</p>
+            <ul>
+                <li><i class="fa-solid fa-star"></i> Thành lập năm 2025</li>
+                <li><i class="fa-solid fa-star"></i> Hơn 30 món ăn đặc sắc</li>
+                <li><i class="fa-solid fa-star"></i> Đội ngũ phục vụ tận tâm</li>
+                <li><i class="fa-solid fa-star"></i> Đạt nhiều giải thưởng ẩm thực uy tín</li>
+                <li><i class="fa-solid fa-star"></i> Hỗ trợ tổ chức sự kiện, tiệc sinh nhật, hội nghị</li>
+            </ul>
+            <div class="about-team">
+                <h3>Đội ngũ của chúng tôi</h3>
+                <p>FoodHub tự hào sở hữu đội ngũ đầu bếp giàu kinh nghiệm, nhân viên phục vụ chuyên nghiệp và thân
+                    thiện. Chúng tôi luôn lắng nghe ý kiến khách hàng để cải thiện dịch vụ mỗi ngày.</p>
+            </div>
+        </section>
+
+        <!-- Food Menu -->
+        <section id="menu" class="menu-preview scroll-reveal">
+            <h2>Thực đơn nổi bật</h2>
+            <div class="menu-list">
+            </div>
+            <a href="./MenuFood/menuFood.html">Xem toàn bộ thực đơn</a>
+            <div class="menu-note">
+                <p><strong>Lưu ý:</strong> Thực đơn có thể thay đổi theo mùa và chương trình khuyến mãi.</p>
+            </div>
+        </section>
+
+        <!-- Gallery -->
+        <section id="gallery" class="gallery scroll-reveal">
+            <h2>Thư viện ảnh</h2>
+            <p>Khám phá không gian và các món ăn đặc sắc của chúng tôi qua những hình ảnh này.</p>
+            <div class="gallery-images">
+                <div class="gallery-item">
+                    <img src="./assets/img/restaurant_interior_1.jpg" alt="Không gian nhà hàng 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="./assets/img/restaurant_interior_2.jpg" alt="Không gian nhà hàng 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="./assets/img/banhxeo.jpg" alt="Món ăn đặc sắc 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="./assets/img/buncha.jpg" alt="Món ăn đặc sắc 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="./assets/img/event.jpg" alt="Tổ chức sự kiện tại FoodHub">
+                </div>
+                <div class="gallery-item">
+                    <img src="./assets/img/chef_at_work.webp" alt="Đầu bếp đang làm việc">
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section id="testimonials" class="testimonials scroll-reveal">
+            <h2>Khách hàng nói gì về chúng tôi</h2>
+            <div class="testimonial-list">
+                <div class="testimonial-item">
+                    <blockquote>"Không gian tuyệt vời, đồ ăn ngon và nhân viên rất thân thiện. Tôi chắc chắn sẽ quay
+                        lại!"</blockquote>
+                    <cite>- Anh Nguyễn Văn A</cite>
+                </div>
+                <div class="testimonial-item">
+                    <blockquote>"FoodHub là lựa chọn hàng đầu của tôi cho những buổi họp mặt bạn bè. Thực đơn đa dạng,
+                        món nào cũng chất lượng."</blockquote>
+                    <cite>- Chị Trần Thị B</cite>
+                </div>
+                <div class="testimonial-item">
+                    <blockquote>"Dịch vụ đặt bàn online rất tiện lợi. Nhà hàng đã chuẩn bị sẵn sàng khi chúng tôi đến.
+                        Rất chuyên nghiệp."</blockquote>
+                    <cite>- Anh Lê Văn C</cite>
+                </div>
+                <div class="testimonial-item">
+                    <blockquote>"Lần đầu đến FoodHub và mình thật sự ấn tượng với cách phục vụ nhanh chóng và chu đáo.
+                        Không gian quán cũng rất ấm cúng."</blockquote>
+                    <cite>- Chị Phạm Thu D</cite>
+                </div>
+                <div class="testimonial-item">
+                    <blockquote>"Tôi thường xuyên đặt món mang về từ FoodHub. Đóng gói cẩn thận, món ăn giữ được độ nóng
+                        và hương vị rất ngon."</blockquote>
+                    <cite>- Anh Vũ Minh E</cite>
+                </div>
+                <div class="testimonial-item">
+                    <blockquote>"Quán có khu vực riêng cho gia đình, rất thích hợp khi đi cùng trẻ nhỏ. Bé nhà mình mê
+                        mấy món tráng miệng ở đây lắm!"</blockquote>
+                    <cite>- Chị Nguyễn Thảo F</cite>
+                </div>
+                <div class="testimonial-item">
+                    <blockquote>"Lúc đầu chỉ thử vì được bạn giới thiệu, nhưng không ngờ lại trở thành khách quen. Đặc
+                        biệt mê món lẩu ở đây!"</blockquote>
+                    <cite>- Anh Bùi Quốc G</cite>
+                </div>
+                <div class="testimonial-item">
+                    <blockquote>"Không gian sạch sẽ, hiện đại, có thể check-in sống ảo luôn. Nhân viên phục vụ rất có
+                        tâm, luôn tươi cười."</blockquote>
+                    <cite>- Bạn Lê Hồng H</cite>
+                </div>
+                <div class="testimonial-item">
+                    <blockquote>"Tôi đánh giá cao sự chuyên nghiệp của FoodHub, từ khâu đặt bàn đến phục vụ tại chỗ. Mọi
+                        thứ đều rất chỉn chu."</blockquote>
+                    <cite>- Anh Trịnh Văn I</cite>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="contact scroll-reveal">
+            <h2>Liên hệ với chúng tôi</h2>
+            <div class="contact-info">
+                <div class="contact-details">
+                    <p><strong>Địa chỉ:</strong> 123 phường Hiệp Bình Chánh, Quận Thủ Đức, TPHCM</p>
+                    <p><strong>Điện thoại:</strong> <a href="tel:0123456789">0123 456 789</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:contact@foodhub.com">contact@foodhub.com</a></p>
+                    <p><strong>Giờ mở cửa:</strong> 9:00 - 22:00, Thứ Hai - Chủ Nhật</p>
+                </div>
+                <div class="contact-map">
+                    <!-- Bạn có thể nhúng bản đồ Google Maps vào đây -->
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.088637973128!2d106.71414257412236!3d10.804523058676756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175293dceb22197%3A0x755bb0f39a48d4a6!2zVHLGsOG7nW5nIMSQ4bqhaSBI4buNYyBHaWFvIFRow7RuZyBW4bqtbiBU4bqjaSBUaMOgbmggUGjhu5EgSOG7kyBDaMOtIE1pbmggLSBDxqEgc-G7nyAx!5e0!3m2!1svi!2s!4v1752816034402!5m2!1svi!2s"
+                        width="550" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>FoodHub</h3>
+                <p>Hệ thống nhà hàng hiện đại, mang đến trải nghiệm ẩm thực tuyệt vời nhất cho bạn và gia đình.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Tổng quan</h3>
+                <ul>
+                    <li><a class="active" href="#home">Home</a></li>
+                    <li><a href="#about">Về chúng tôi</a></li>
+                    <li><a href="#contact">Liên hệ</a></li>
+                    <li><a href="./MenuFood/menuFood.html">Thực đơn</a></li>
+                    <li><a href="./booking/booking.html">Đặt bàn</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Các chi nhánh và liên hệ</h3>
+                <ul>
+                    <li><i class="fa-solid fa-location-dot"></i>123 phường Hiệp Bình Chánh, Quận Thủ Đức, TPHCM</li>
+                    <li><i class="fa-solid fa-phone"></i><a href="tel:0123456789">0123 456 789</a></li>
+                    <li><i class="fa-solid fa-envelope"></i><a href="mailto:contact@foodhub.com">contact@foodhub.com</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Theo dõi chúng tôi</h3>
+                <div class="social-icons">
+                    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" title="Tiktok"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" title="Youtube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 FoodHub. All rights reserved. Made by PurePeter</p>
+        </div>
+    </footer>
+    <script src="./assets/interact/header.js"></script>
+    <script src="./homePage/script.js"></script>
+    <script src="./assets/interact/menu.js"></script>
+</body>
+
+</html>
