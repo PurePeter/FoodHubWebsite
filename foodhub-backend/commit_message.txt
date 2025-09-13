@@ -1,4 +1,0 @@
-fix: Remove .env from Git history and update .env.example
-
-- Untracked and removed `.env` file from Git history to prevent sensitive information exposure.
-- Updated `.env.example` to reflect the correct format for environment variables.
