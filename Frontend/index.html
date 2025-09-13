@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang chủ chính</title>
+    <title>Trang chủ chính | FoodHub</title>
     <link rel="stylesheet" href="./homePage/style.css">
     <link rel="stylesheet" href="./assets/css/base.css">
     <link rel="stylesheet" href="./assets/css/header.css">
@@ -38,7 +38,7 @@
                 <a href="#about" style="--i:1;">Về chúng tôi</a>
                 <a href="#contact" style="--i:2;">Liên hệ</a>
                 <a href="./MenuFood/menuFood.html" style="--i:3;">Thực đơn</a>
-                <a href="./booking/booking.html" style="--i:4;">Đặt bàn</a>
+                <a href="./booking/booking.html" id="booking-nav-link" style="--i:4;">Đặt bàn</a>
                 <div class="nav-underline"></div>
             </nav>
         </div>
@@ -60,7 +60,7 @@
             </label>
 
             <div class="header-right-user-menu">
-                <a href="./Login/index.html" title="Đăng nhập" target="_self" class="login-btn">Đăng nhập</a>
+                <a href="./Login/login.html" title="Đăng nhập" target="_self" class="login-btn">Đăng nhập</a>
                 <div class="notification-wrapper">
                     <span class="notification-btn" title="Thông báo">
                         <i class="fa-solid fa-bell"></i>
@@ -144,6 +144,9 @@
             <!-- Banner Slider -->
             <div class="banner-slider">
                 <div class="slides-wrapper">
+                    <div class="loader-wrapper">
+                        <div class="loader"></div>
+                    </div>
                 </div>
 
                 <a class="prev">&#10094;</a>
@@ -188,6 +191,9 @@
         <section id="menu" class="menu-preview scroll-reveal">
             <h2>Thực đơn nổi bật</h2>
             <div class="menu-list">
+                <div class="loader-wrapper">
+                    <div class="loader"></div>
+                </div>
             </div>
             <a href="./MenuFood/menuFood.html">Xem toàn bộ thực đơn</a>
             <div class="menu-note">

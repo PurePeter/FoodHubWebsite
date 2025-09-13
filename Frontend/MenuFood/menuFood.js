@@ -69,15 +69,17 @@ document.addEventListener("DOMContentLoaded", function () {
     menuList.style.display = "grid"; // Đảm bảo hiển thị lưới khi có kết quả
     if (filteredDishes.length === 0) {
       menuList.style.display = "block";
-      menuList.innerHTML = `<p class="no-results" style='font-size: 1.6rem; margin-left: 30px'>Không tìm thấy món ăn nào phù hợp với từ '${currentFilters.searchTerm}'.</p>`;
+      menuList.innerHTML = `<p class="no-results" style='font-size: 1.6rem; margin-left: 30px; white-space: nowrap;'>Không tìm thấy món ăn nào phù hợp với từ '${currentFilters.searchTerm}'.</p>`;
       return;
     }
 
     filteredDishes.forEach((dish) => {
       const menuItem = document.createElement("div");
       menuItem.classList.add("menu-item");
+      // Lấy ảnh từ API
+      const imageUrl = `http://localhost:3001/api/dishes/${dish._id}/image`;
       menuItem.innerHTML = `
-                <img src="../assets/img/${dish.image}" alt="${dish.name}">
+                <img src="${imageUrl}" alt="${dish.name}">
                 <h2>${dish.name}</h2>
                 <p>${dish.description}</p>
                 <span class="menu-price">${dish.price.toLocaleString(
@@ -85,6 +87,17 @@ document.addEventListener("DOMContentLoaded", function () {
                 )}đ</span>
                 <button class="order-btn">Đặt món</button>
             `;
+
+      // Thêm logic kiểm tra đăng nhập cho nút "đặt món"
+      const orderBtn = menuItem.querySelector(".order-btn");
+      orderBtn.addEventListener("click", () => {
+        const loggedInUser = localStorage.getItem("loggedInUser");
+        if (!loggedInUser) {
+          alert("Vui lòng đăng nhập để đặt món!");
+        } else {
+          window.location.href = "./booking/booking.html";
+        }
+      });
       menuList.appendChild(menuItem);
     });
   }
@@ -112,6 +125,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // --- Initial Fetch ---
   async function initializeMenu() {
+    // Hiển thị loader khi bắt đầu tải
+    menuList.innerHTML = `<div class="loader-wrapper">
+                              <div class="loader"></div>      
+                          </div>`;
+
     const urlParams = new URLSearchParams(window.location.search);
     currentFilters.searchTerm = urlParams.get("search")?.toLowerCase() || "";
 
@@ -119,16 +137,15 @@ document.addEventListener("DOMContentLoaded", function () {
     searchInput.value = currentFilters.searchTerm;
 
     try {
-      const response = await fetch("../assets/data/dishes.json");
+      const response = await fetch("http://localhost:3001/api/dishes");
       if (!response.ok)
         throw new Error(`HTTP error! status: ${response.status}`);
       allDishes = await response.json();
       renderDishes();
     } catch (error) {
       console.error("Lỗi khi tải thực đơn:", error);
-      menuList.style.display = "block";
       menuList.innerHTML =
-        "<p class='error-message' style='font-size: 1.6rem; margin-left: 16px'>Không thể tải được thực đơn. Vui lòng thử lại sau!</p>";
+        "<p class='error-message' style='font-size: 1.6rem; margin-left: 16px; color: red; white-space: nowrap;'>Không thể tải được thực đơn. Vui lòng thử lại sau!</p>";
     }
   }
 

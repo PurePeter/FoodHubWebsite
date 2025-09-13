@@ -219,6 +219,15 @@ section>p {
     margin-bottom: 40px;
 }
 
+/* 
+  Tạm thời thay đổi display của menu-list thành 'block' khi loader đang hiển thị.
+  Điều này sẽ ghi đè 'display: grid' và cho phép loader-wrapper (với width: 100%)
+  căn giữa nội dung của nó một cách chính xác.
+*/
+.menu-list:has(.loader-wrapper) {
+    display: block;
+}
+
 .menu-item {
     background: var(--white-color);
     border-radius: 15px;
