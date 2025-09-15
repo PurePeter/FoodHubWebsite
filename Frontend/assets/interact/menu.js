@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .catch((error) => {
         console.error("Error fetching menu data:", error);
         menuList.style.display = "block";
-        menuList.innerHTML = `<p class='error-message' style='font-size: 1.6rem; margin-left: 30px; color: red;'>Không thể tải được thực đơn. Vui lòng thử lại sau!</p>`;
+        menuList.innerHTML = `<p class='error-message'>Không thể tải được thực đơn. Vui lòng thử lại sau!</p>`;
       });
   }
 });

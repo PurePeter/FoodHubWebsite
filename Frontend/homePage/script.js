@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
       })
       .catch((error) => {
         console.error("Error fetching banner slides:", error);
-        slidesWrapper.innerHTML = `<p class='error-message' style='font-size: 1.6rem; text-align: center; color: red; margin-left: 30px; white-space: nowrap;'>Không thể tải banner!</p>`;
+        slidesWrapper.innerHTML = `<p class='error-message'>Không thể tải banner!</p>`;
         // Ẩn các nút điều khiển slider khi có lỗi
         if (prevBtn) prevBtn.style.display = "none";
         if (nextBtn) nextBtn.style.display = "none";
