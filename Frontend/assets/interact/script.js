@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
           slide.classList.add("slide");
           const img = document.createElement("img");
           // Tạo URL đầy đủ đến ảnh trên backend
-          img.src = `${API_BASE_URL}/images/${slideData.imageName}`;
+          img.src = `${API_BASE_URL}/bannerslides/${slideData._id}/image`;
           img.alt = "FoodHub Banner";
           slide.appendChild(img);
           slidesWrapper.appendChild(slide);

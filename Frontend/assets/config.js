@@ -8,11 +8,12 @@
 // - "production": Sử dụng server backend đã triển khai trên Render.
 // =================================================================
 
-const ENVIRONMENT = "development"; // <-- THAY ĐỔI Ở ĐÂY
+const ENVIRONMENT = "production"; // <-- THAY ĐỔI Ở ĐÂY
 
 const API_URLS = {
   development: "http://localhost:3001/api",
-  production: "https://food-hub-backend-086n.onrender.com/api",
+  production: "https://food-hub-backend-o35j.onrender.com/api",
 };
 
 const API_BASE_URL = API_URLS[ENVIRONMENT];
+window.API_BASE_URL = API_BASE_URL;

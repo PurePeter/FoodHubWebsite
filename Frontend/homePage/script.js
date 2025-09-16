@@ -57,17 +57,25 @@ document.addEventListener("DOMContentLoaded", function () {
         return response.json();
       })
       .then((data) => {
-        slidesWrapper.innerHTML = ""; // Xóa loader
+        slidesWrapper.innerHTML = "";
         if (data.length === 0) {
           throw new Error("No banners found");
         }
-        data.forEach((slideData) => {
+        data.forEach((slideData, idx) => {
           const slide = document.createElement("div");
           slide.classList.add("slide");
           const img = document.createElement("img");
-          // Tạo URL đầy đủ đến ảnh trên backend
-          img.src = `${API_BASE_URL}/images/${slideData.imageName}`;
+          img.src = `${API_BASE_URL}/bannerslides/${slideData._id}/image`;
           img.alt = "FoodHub Banner";
+          // Fallback: nếu ảnh không load được thì dùng ảnh mặc định
+          img.onerror = function () {
+            const fallbackImages = [
+              "./assets/img/FoodMenuBanner.webp",
+              "./assets/img/FoodBannerNoodle.webp",
+              "./assets/img/FoodBannerSalad.webp",
+            ];
+            img.src = fallbackImages[idx % fallbackImages.length];
+          };
           slide.appendChild(img);
           slidesWrapper.appendChild(slide);
         });
@@ -75,11 +83,23 @@ document.addEventListener("DOMContentLoaded", function () {
       })
       .catch((error) => {
         console.error("Error fetching banner slides:", error);
-        slidesWrapper.innerHTML = `<p class='error-message'>Không thể tải banner!</p>`;
-        // Ẩn các nút điều khiển slider khi có lỗi
-        if (prevBtn) prevBtn.style.display = "none";
-        if (nextBtn) nextBtn.style.display = "none";
-        if (dotsContainer) dotsContainer.style.display = "none";
+        // Nếu fetch thất bại, hiển thị các ảnh mặc định
+        slidesWrapper.innerHTML = "";
+        const fallbackImages = [
+          "./assets/img/FoodMenuBanner.webp",
+          "./assets/img/FoodBannerNoodle.webp",
+          "./assets/img/FoodBannerSalad.webp",
+        ];
+        fallbackImages.forEach((src) => {
+          const slide = document.createElement("div");
+          slide.classList.add("slide");
+          const img = document.createElement("img");
+          img.src = src;
+          img.alt = "FoodHub Banner";
+          slide.appendChild(img);
+          slidesWrapper.appendChild(slide);
+        });
+        initSlider(slider, slidesWrapper, dotsContainer, prevBtn, nextBtn);
       })
       .finally(() => {
         // Reset cờ sau khi fetch xong (thành công hoặc thất bại)

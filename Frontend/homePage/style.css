@@ -227,6 +227,13 @@ section>p {
     display: block;
 }
 
+.menu-list .error-message {
+    text-align: center;
+    font-size: 1.5rem;
+    color: red;
+    text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.08);
+}
+
 .menu-item {
     background: var(--white-color);
     border-radius: 15px;
