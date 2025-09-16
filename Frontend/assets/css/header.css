@@ -907,6 +907,7 @@
         opacity: 0;
         padding: 10px;
         transition: width 0.5s ease, opacity 0.5s ease;
+        border-radius: 10px;
     }
 
     .header.search-active .header-right-search input {

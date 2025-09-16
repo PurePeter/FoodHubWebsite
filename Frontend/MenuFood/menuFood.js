@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
     menuList.style.display = "grid"; // Đảm bảo hiển thị lưới khi có kết quả
     if (filteredDishes.length === 0) {
       menuList.style.display = "block";
-      menuList.innerHTML = `<p class="no-results" style='font-size: 1.6rem; margin-left: 30px; white-space: nowrap;'>Không tìm thấy món ăn nào phù hợp với từ '${currentFilters.searchTerm}'.</p>`;
+      menuList.innerHTML = `<p class="no-results">Không tìm thấy món ăn nào phù hợp với từ <b>'${currentFilters.searchTerm}'</b>.</p>`;
       return;
     }
 
@@ -77,10 +77,10 @@ document.addEventListener("DOMContentLoaded", function () {
       const menuItem = document.createElement("div");
       menuItem.classList.add("menu-item");
       // Lấy ảnh từ API
-      const imageUrl = `http://localhost:3001/api/dishes/${dish._id}/image`;
+      const imageUrl = `${API_BASE_URL}/dishes/${dish._id}/image`;
       menuItem.innerHTML = `
                 <img src="${imageUrl}" alt="${dish.name}">
-                <h2>${dish.name}</h2>
+                <h3>${dish.name}</h3>
                 <p>${dish.description}</p>
                 <span class="menu-price">${dish.price.toLocaleString(
                   "vi-VN"
@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function () {
     searchInput.value = currentFilters.searchTerm;
 
     try {
-      const response = await fetch("http://localhost:3001/api/dishes");
+      const response = await fetch(`${API_BASE_URL}/dishes`);
       if (!response.ok)
         throw new Error(`HTTP error! status: ${response.status}`);
       allDishes = await response.json();
@@ -145,7 +145,7 @@ document.addEventListener("DOMContentLoaded", function () {
     } catch (error) {
       console.error("Lỗi khi tải thực đơn:", error);
       menuList.innerHTML =
-        "<p class='error-message' style='font-size: 1.6rem; margin-left: 16px; color: red; white-space: nowrap;'>Không thể tải được thực đơn. Vui lòng thử lại sau!</p>";
+        "<p class='error-message'>Không thể tải được thực đơn. Vui lòng thử lại sau!</p>";
     }
   }
 

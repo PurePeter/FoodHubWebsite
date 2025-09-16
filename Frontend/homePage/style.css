@@ -535,7 +535,7 @@ section>p {
 
     .menu-list .error-message {
         text-align: center;
-        font-size: 1.6rem;
+        font-size: 1.5rem;
         color: red;
         text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.08);
     }

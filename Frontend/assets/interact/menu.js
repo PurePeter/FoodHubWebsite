@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuList = document.querySelector(".menu-list");
 
   if (menuList) {
-    fetch("http://localhost:3001/api/dishes")
+    fetch(`${API_BASE_URL}/dishes`)
       .then((response) => response.json())
       .then((data) => {
         menuList.innerHTML = ""; // Xóa loader sau khi dữ liệu được tải
@@ -43,7 +43,7 @@ function createMenuItem(dish) {
   menuItem.classList.add("menu-item");
 
   // Sử dụng endpoint API để lấy ảnh
-  const imageUrl = `http://localhost:3001/api/dishes/${dish._id}/image`;
+  const imageUrl = `${API_BASE_URL}/dishes/${dish._id}/image`;
 
   menuItem.innerHTML = `
         <img src="${imageUrl}" alt="${dish.name}">

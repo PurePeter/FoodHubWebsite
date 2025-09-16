@@ -26,9 +26,6 @@ backToSignInLink.addEventListener("click", (e) => {
 const signInForm = document.querySelector(".form-wrapper.sign-in form");
 const signUpForm = document.querySelector(".form-wrapper.sign-up form");
 
-// URL của API
-const apiUrl = "http://localhost:3001/api";
-
 // --- Notification Logic ---
 const notification = document.getElementById("notification");
 const notificationMessage = notification.querySelector(".notification-message");
@@ -84,7 +81,7 @@ const handleSignInSubmit = async (e) => {
   const password = signInForm.querySelector('input[type="password"]').value;
 
   try {
-    const response = await fetch(`${apiUrl}/login`, {
+    const response = await fetch(`${API_BASE_URL}/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
@@ -124,7 +121,7 @@ const handleSignUpSubmit = async (e) => {
   }
 
   try {
-    const response = await fetch(`${apiUrl}/register`, {
+    const response = await fetch(`${API_BASE_URL}/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, email, password }),
@@ -148,21 +145,21 @@ signInForm.addEventListener("submit", handleSignInSubmit);
 signUpForm.addEventListener("submit", handleSignUpSubmit);
 
 // Thêm sự kiện keydown cho các input trong form đăng nhập
-signInForm.querySelectorAll("input").forEach(input => {
+signInForm.querySelectorAll("input").forEach((input) => {
   input.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
       e.preventDefault(); // Ngăn chặn hành vi mặc định của Enter (ví dụ: xuống dòng)
-      signInForm.dispatchEvent(new Event('submit')); // Kích hoạt sự kiện submit của form
+      signInForm.dispatchEvent(new Event("submit")); // Kích hoạt sự kiện submit của form
     }
   });
 });
 
 // Thêm sự kiện keydown cho các input trong form đăng ký
-signUpForm.querySelectorAll("input").forEach(input => {
+signUpForm.querySelectorAll("input").forEach((input) => {
   input.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
       e.preventDefault(); // Ngăn chặn hành vi mặc định của Enter
-      signUpForm.dispatchEvent(new Event('submit')); // Kích hoạt sự kiện submit của form
+      signUpForm.dispatchEvent(new Event("submit")); // Kích hoạt sự kiện submit của form
     }
   });
 });

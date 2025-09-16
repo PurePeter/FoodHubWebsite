@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (nextBtn) nextBtn.style.display = "block";
     if (dotsContainer) dotsContainer.style.display = "block";
 
-    fetch(`${API_BASE_URL}/bannerslides`) // Đã sử dụng biến API_BASE_URL, không cần thay đổi
+    fetch(`${API_BASE_URL}/bannerslides`)
       .then((response) => {
         if (!response.ok) {
           throw new Error(
