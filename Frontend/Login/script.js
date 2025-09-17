@@ -1,27 +1,3 @@
-const signUpBtnLink = document.querySelector(".signUpBtn-link");
-const signInBtnLink = document.querySelector(".signInBtn-link");
-const wrapper = document.querySelector(".right-wrapper");
-const forgotLink = document.querySelector(".forgot-link");
-const backToSignInLink = document.querySelector(".backToSignIn-link");
-
-signUpBtnLink.addEventListener("click", () => {
-  wrapper.classList.toggle("active");
-});
-
-signInBtnLink.addEventListener("click", () => {
-  wrapper.classList.toggle("active");
-});
-
-forgotLink.addEventListener("click", (e) => {
-  e.preventDefault();
-  wrapper.classList.add("forgot-active");
-});
-
-backToSignInLink.addEventListener("click", (e) => {
-  e.preventDefault();
-  wrapper.classList.remove("forgot-active");
-});
-
 // Lấy form đăng ký và đăng nhập
 const signInForm = document.querySelector(".form-wrapper.sign-in form");
 const signUpForm = document.querySelector(".form-wrapper.sign-up form");
@@ -166,6 +142,38 @@ signUpForm.querySelectorAll("input").forEach((input) => {
 
 // --- Other event listeners (unchanged) ---
 document.addEventListener("DOMContentLoaded", function () {
+  const signUpBtnLink = document.querySelector(".signUpBtn-link");
+  const signInBtnLink = document.querySelector(".signInBtn-link");
+  const wrapper = document.querySelector(".right-wrapper");
+  const forgotLink = document.querySelector(".forgot-link");
+  const backToSignInLink = document.querySelector(".backToSignIn-link");
+
+  if (signUpBtnLink) {
+    signUpBtnLink.addEventListener("click", () => {
+      wrapper.classList.toggle("active");
+    });
+  }
+
+  if (signInBtnLink) {
+    signInBtnLink.addEventListener("click", () => {
+      wrapper.classList.toggle("active");
+    });
+  }
+
+  if (forgotLink) {
+    forgotLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      wrapper.classList.add("forgot-active");
+    });
+  }
+
+  if (backToSignInLink) {
+    backToSignInLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      wrapper.classList.remove("forgot-active");
+    });
+  }
+
   const googleBtn = document.querySelector(".fa-google").closest("a");
   googleBtn.addEventListener("click", function (e) {
     e.preventDefault();

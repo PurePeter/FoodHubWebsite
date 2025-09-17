@@ -133,21 +133,6 @@ document.addEventListener("DOMContentLoaded", function () {
     updateClearIconVisibility();
   }
 
-  // --- Notification List Logic ---
-  function limitNotificationList() {
-    const notificationList = document.querySelector(".notification-list");
-    if (!notificationList) return;
-
-    const notificationItems =
-      notificationList.querySelectorAll(".notification-item");
-    if (notificationItems.length > 5) {
-      const itemHeight = notificationItems[0].offsetHeight;
-      // Set max-height to show 5 full items and a half of the 6th to indicate scrollability
-      notificationList.style.maxHeight = `${itemHeight * 5.5}px`;
-      notificationList.style.overflowY = "scroll";
-    }
-  }
-
   // --- Navigation & Underline Logic ---
   const isHomePage =
     window.location.pathname.endsWith("/") ||
@@ -317,6 +302,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (loginBtn) loginBtn.style.display = "flex";
       if (userAvatarWrapper) userAvatarWrapper.style.display = "none";
       if (notificationWrapper) notificationWrapper.style.display = "none";
+      // UI cho khách được xử lý bằng CSS mặc định, không cần JS
     },
     logout: function (message) {
       localStorage.removeItem("loggedInUser");
@@ -338,6 +324,21 @@ document.addEventListener("DOMContentLoaded", function () {
       );
     },
   };
+
+  // --- Notification List Logic ---
+  function limitNotificationList() {
+    const notificationList = document.querySelector(".notification-list");
+    if (!notificationList) return;
+
+    const notificationItems =
+      notificationList.querySelectorAll(".notification-item");
+    if (notificationItems.length > 5) {
+      const itemHeight = notificationItems[0].offsetHeight;
+      // Set max-height to show 5 full items and a half of the 6th to indicate scrollability
+      notificationList.style.maxHeight = `${itemHeight * 5.5}px`;
+      notificationList.style.overflowY = "scroll";
+    }
+  }
 
   // --- Initialize All ---
   limitNotificationList();
