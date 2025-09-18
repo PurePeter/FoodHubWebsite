@@ -32,6 +32,38 @@ document.addEventListener("DOMContentLoaded", function () {
     closeSubMenus();
   }
 
+  // Determine the base path for assets dynamically
+  function getAssetBasePath() {
+    const pathParts = window.location.pathname.split("/");
+    const frontendIndex = pathParts.indexOf("Frontend");
+    if (frontendIndex === -1) {
+      return "./"; // Fallback
+    }
+    let depth = 0;
+    // Calculate depth from 'Frontend' to the current directory
+    // Example: /FoodHubWebsite/Frontend/UserMenu/Profile/profile.html
+    // pathParts: ["", "FoodHubWebsite", "Frontend", "UserMenu", "Profile", "profile.html"]
+    // frontendIndex: 2
+    // The number of directories after 'Frontend' and before the filename is the depth.
+    // For profile.html, it's 'UserMenu' and 'Profile', so depth is 2.
+    // pathParts.length - 1 (for filename) - (frontendIndex + 1) (for "Frontend" itself)
+    depth = pathParts.length - 1 - (frontendIndex + 1);
+    // For profile.html, it's 'UserMenu' and 'Profile', so depth is 2. Correct calculation is:
+    // pathParts.length - (frontendIndex + 2)
+    depth = pathParts.length - (frontendIndex + 2);
+
+    let basePath = "";
+    for (let i = 0; i < depth; i++) {
+      basePath += "../";
+    }
+    if (depth === 0) {
+      basePath = "./";
+    }
+    return basePath + "assets/img/";
+  }
+
+  const assetImgPath = getAssetBasePath();
+
   // --- Event Listeners (Menus) ---
   mainCheckboxes.forEach((checkbox) => {
     checkbox.addEventListener("change", function () {
@@ -244,7 +276,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // --- Session Management Logic ---
   const SessionManager = {
     inactivityTimeout: null,
-    timeoutDuration: 30 * 60 * 1000,
+    timeoutDuration: 60 * 60 * 1000,
     init: function () {
       this.checkSession();
       this.setupActivityListeners();
@@ -272,10 +304,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const userAvatarImg = userAvatarWrapper.querySelector("img");
       if (userAvatarImg) {
         userAvatarImg.src =
-          user.avatar ||
-          (isHomePage
-            ? "./assets/img/unknownAvatarUser.png"
-            : "../assets/img/unknownAvatarUser.png");
+          user.avatar || assetImgPath + "unknownAvatarUser.png";
         userAvatarImg.alt = user.username;
         userAvatarImg.title = user.username;
       }

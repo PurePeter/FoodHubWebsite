@@ -202,7 +202,6 @@
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
-    margin-top: 3px;
 }
 
 /* Styles for user avatar dropdown */
@@ -505,10 +504,6 @@
     .header-right-user-menu .login-btn,
     .notification-btn {
         margin-right: 5px;
-    }
-
-    .user-avatar-wrapper img {
-        margin-top: 3px;
     }
 
     #user-menu-check:checked~.header-right-user-menu {

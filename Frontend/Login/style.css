@@ -233,6 +233,11 @@ button {
     border-radius: 30px;
     border: none;
     outline: none;
+    transition: background 0.25s ease-in-out;
+}
+
+button:hover {
+    background: #d4176f;
 }
 
 .signUp-link {
