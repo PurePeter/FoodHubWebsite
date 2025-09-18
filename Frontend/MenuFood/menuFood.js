@@ -22,6 +22,9 @@ document.addEventListener("DOMContentLoaded", function () {
     sort: "default",
   };
 
+  // Quản lý danh sách yêu thích
+  let favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+
   // --- DOM Elements ---
   const menuList = document.querySelector(".menu-list");
   const filterButtons = document.querySelectorAll(".filter-btn");
@@ -78,8 +81,16 @@ document.addEventListener("DOMContentLoaded", function () {
       menuItem.classList.add("menu-item");
       // Lấy ảnh từ API
       const imageUrl = `${API_BASE_URL}/dishes/${dish._id}/image`;
+      const isFavorite = favorites.includes(dish._id);
       menuItem.innerHTML = `
-                <img src="${imageUrl}" alt="${dish.name}">
+                <div class="menu-item-header">
+                    <img src="${imageUrl}" alt="${dish.name}">
+                    <button class="favorite-btn ${
+                      isFavorite ? "active" : ""
+                    }" data-id="${dish._id}">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                </div>
                 <h3>${dish.name}</h3>
                 <p>${dish.description}</p>
                 <span class="menu-price">${dish.price.toLocaleString(
@@ -98,6 +109,27 @@ document.addEventListener("DOMContentLoaded", function () {
           window.location.href = "./booking/booking.html";
         }
       });
+
+      // Xử lý sự kiện yêu thích
+      const favoriteBtn = menuItem.querySelector(".favorite-btn");
+      favoriteBtn.addEventListener("click", () => {
+        const dishId = favoriteBtn.dataset.id;
+        const index = favorites.indexOf(dishId);
+
+        if (index === -1) {
+          // Thêm vào yêu thích
+          favorites.push(dishId);
+          favoriteBtn.classList.add("active");
+        } else {
+          // Xóa khỏi yêu thích
+          favorites.splice(index, 1);
+          favoriteBtn.classList.remove("active");
+        }
+
+        // Lưu danh sách yêu thích vào localStorage
+        localStorage.setItem("favorites", JSON.stringify(favorites));
+      });
+
       menuList.appendChild(menuItem);
     });
   }

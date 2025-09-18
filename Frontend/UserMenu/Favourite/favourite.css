@@ -1,62 +1,73 @@
-/* --- Menu Page Header --- */
-.menu-header {
-    background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
-    color: var(--white-color);
-    text-align: center;
+/* --- Main container --- */
+.main-container {
     padding: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    /* Thêm padding trên cùng để không bị header che */
+    max-width: 1300px;
+    margin: 0 auto;
+    min-height: calc(100vh - 250px);
+}
+
+
+/* --- Login Required Message --- */
+.booking-message {
+    text-align: center;
+    padding: 30px;
+    border: 1px dashed #ff6b6b;
+    border-radius: 8px;
+    background-color: #fff5f5;
+}
+
+.booking-message p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 1.6rem;
+}
+
+.btn {
+    display: inline-block;
+    background-image: linear-gradient(to right, #fe2389, #b253e1);
+    color: var(--white-color);
+    font-weight: 500;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1.6rem;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(254, 35, 137, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(254, 35, 137, 0.6);
+}
+
+/* --- Favourite Section --- */
+#favourite-section h1 {
+    text-align: center;
+    font-size: 3rem;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+#favourite-section p {
+    text-align: center;
+    font-size: 1.4rem;
+    color: #666;
+    margin-bottom: 30px;
     line-height: 1.4;
 }
 
-.menu-header h1 {
-    font-size: 3rem;
-    margin: 0;
-    font-weight: 700;
-}
-
-.menu-header p {
-    font-size: 1.4rem;
-    margin: 5px 0;
-}
-
-/* --- Main content area --- */
-.menu-main {
-    padding: 50px 0;
-}
-
-/* --- Controls for filtering and sorting --- */
-.menu-controls {
-    max-width: 1300px;
-    margin: 0 auto 30px;
-    padding: 0 15px;
+/* --- Controls for sorting --- */
+.favourite-controls {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    flex-wrap: wrap;
+    margin-bottom: 30px;
     gap: 20px;
-}
-
-.filter-buttons {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.filter-btn {
-    padding: 10px 18px;
-    border: 1px solid #ddd;
-    background-color: #fff;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 1.3rem;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-}
-
-.filter-btn.active,
-.filter-btn:hover {
-    background-color: #ff6347;
-    color: white;
-    border-color: #ff6347;
 }
 
 .sort-select {
@@ -66,47 +77,76 @@
     font-size: 1.3rem;
     cursor: pointer;
     outline: none;
+    background-color: #fff;
     transition: border-color 0.3s;
 }
 
 .sort-select:hover {
-    border-color: #ff6347;
+    border-color: var(--primary-color);
 }
 
-.menu-list-section {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 0 15px;
-}
-
-/* --- Grid layout for the menu items --- */
-.menu-list {
+.favourite-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
 }
 
-.menu-list .no-results {
-    font-size: 1.6rem;
-    text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.08);
-}
-
-.menu-list .error-message {
+/* --- No Results Message --- */
+.no-results {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #555;
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
     width: 100%;
-    font-size: 1.5rem;
-    color: red;
-    text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.08);
-    white-space: nowrap;
+    grid-column: 1 / -1;
+    /* Đảm bảo thông báo chiếm toàn bộ chiều rộng grid */
 }
 
-/* 
-  Tạm thời thay đổi display của menu-list thành 'block' khi loader đang hiển thị.
-  Điều này sẽ ghi đè 'display: grid' và cho phép loader-wrapper (với width: 100%)
-  căn giữa nội dung của nó một cách chính xác.
-*/
-.menu-list:has(.loader-wrapper) {
-    display: block;
+.no-results a {
+    color: #555;
+    text-decoration: underline;
+    transition: color 0.25 ease;
 }
+
+.no-results a:hover {
+    color: #b253e1;
+}
+
+/* --- Loader --- */
+.loader-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 200px;
+    grid-column: 1 / -1;
+    /* Trải dài hết các cột của grid */
+}
+
+.loader {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid var(--primary-color);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* ---
+STYLES COPIED FROM menuFood.css FOR CONSISTENCY
+--- */
 
 /* --- Individual menu item card styling --- */
 .menu-item {
@@ -125,26 +165,21 @@
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-.menu-item img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
 .menu-item h3 {
     font-size: 1.6rem;
     font-weight: 600;
-    margin: 15px 15px 5px;
+    margin: 10px 20px 5px;
     color: var(--text-color);
 }
 
-.menu-item p {
+#favourite-section .menu-item p {
     font-size: 1.2rem;
     color: #666;
-    padding: 0 15px;
+    padding: 0 20px;
     flex-grow: 1;
     margin-top: 2px;
     margin-bottom: 20px;
+    text-align: start;
 }
 
 .menu-price {
@@ -182,19 +217,7 @@
     transform: scale(0.98);
 }
 
-/* Animation when scroll page */
-.scroll-reveal {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 1.2s cubic-bezier(0.5, 0, 0, 1), transform 0.8s cubic-bezier(0.5, 0, 0, 1);
-}
-
-.scroll-reveal.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Thêm CSS cho nút yêu thích */
+/* --- Favorite button styles --- */
 .menu-item-header {
     position: relative;
     width: 100%;
@@ -204,7 +227,7 @@
     width: 100%;
     height: 200px;
     object-fit: cover;
-    border-radius: 8px;
+    /* Không cần border-radius ở đây vì .menu-item đã có overflow: hidden */
 }
 
 .favorite-btn {
@@ -265,37 +288,8 @@
 /* For moblie */
 @media (max-width: 768px) {
 
-    /* Control Sort */
-    .menu-main {
-        padding: 30px 0;
-    }
-
-    .menu-controls {
-        margin: 0 auto 25px;
-    }
-
-    .filter-buttons {
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        min-width: 0;
-        width: 100%;
-        padding-bottom: 16px;
-        scrollbar-width: thin;
-        scrollbar-color: #ff6347 transparent;
-    }
-
-    .filter-btn {
-        padding: 12px 20px;
-        white-space: nowrap;
-        flex: 0 0 auto;
-    }
-
-    .sort-options {
-        margin-top: -8px;
-    }
-
     /* Container */
-    .menu-list {
+    .favourite-list {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
     }
@@ -305,11 +299,11 @@
     }
 
     .menu-item h3 {
-        margin: 10px 10px 5px;
+        margin: 10px 12px 5px;
     }
 
-    .menu-item p {
-        padding: 0 10px;
+    #favourite-section .menu-item p {
+        padding: 0 12px;
         margin-top: 0;
     }
 }

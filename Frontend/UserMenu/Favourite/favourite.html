@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đặt bàn | FoodHub</title>
-    <link rel="stylesheet" href="../assets/css/base.css">
-    <link rel="stylesheet" href="../assets/css/header.css">
-    <link rel="stylesheet" href="../assets/css/footer.css">
-    <link rel="stylesheet" href="./style.css">
-    <link rel="icon" type="image/jpg" href="../assets/img/avatarFood.png">
+    <title>Món ăn yêu thích | FoodHub</title>
+    <link rel="stylesheet" href="../../assets/css/base.css">
+    <link rel="stylesheet" href="../../assets/css/header.css">
+    <link rel="stylesheet" href="../../assets/css/footer.css">
+    <link rel="stylesheet" href="./favourite.css">
+    <link rel="icon" type="image/jpg" href="../../assets/img/avatarFood.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap"
@@ -17,12 +17,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="../../assets/config.js"></script>
 </head>
 
-<body class="guest">
+<body>
     <!-- Header -->
     <div class="header">
-        <a class="link-avatarFood" href="../index.html"><img class="avatarFood" src="../assets/img/avatarFood.png"
+        <a class="link-avatarFood" href="../../index.html"><img class="avatarFood" src="../../assets/img/avatarFood.png"
                 alt="Avatar food"></a>
 
         <input type="checkbox" id="check">
@@ -33,11 +34,11 @@
 
         <div class="header-navigate">
             <nav>
-                <a href="../index.html#home" style="--i:0;">Home</a>
-                <a href="../index.html#testimonials" style="--i:1;">Đánh giá</a>
-                <a href="../index.html#contact" style="--i:2;">Liên hệ</a>
-                <a href="../MenuFood/menuFood.html" style="--i:3;">Thực đơn</a>
-                <a class="active" href="#" style="--i:4;">Đặt bàn</a>
+                <a href="../../index.html#home" style="--i:0;">Home</a>
+                <a href="../../index.html#testimonials" style="--i:1;">Đánh giá</a>
+                <a href="../../index.html#contact" style="--i:2;">Liên hệ</a>
+                <a href="../../MenuFood/menuFood.html" style="--i:3;">Thực đơn</a>
+                <a href="../../booking/booking.html" style="--i:4;">Đặt bàn</a>
                 <div class="nav-underline"></div>
             </nav>
         </div>
@@ -59,7 +60,7 @@
             </label>
 
             <div class="header-right-user-menu">
-                <a href="../Login/login.html" title="Đăng nhập" target="_self" class="login-btn">Đăng nhập</a>
+                <a href="../../Login/login.html" title="Đăng nhập" target="_self" class="login-btn">Đăng nhập</a>
                 <div class="notification-wrapper">
                     <span class="notification-btn" title="Thông báo">
                         <i class="fa-solid fa-bell"></i>
@@ -70,17 +71,17 @@
                         <ul class="notification-list">
                             <li class="notification-item">
                                 <a href="#">
-                                    <img src="../assets/img/salad.jpg" alt="Salad" class="notification-img">
+                                    <img src="../../assets/img/salad.jpg" alt="Salad" class="notification-img">
                                     <div class="notification-info">
                                         <div class="notification-name">Khuyến mãi salad mùa hè!</div>
-                                        <div class="notificaiton-desc">Giảm giá 20% cho tất cả các món salafdfd.</div>
+                                        <div class="notificaiton-desc">Giảm giá 20% cho tất cả các món salad.</div>
                                         <div class="notification-time">30 phút trước</div>
                                     </div>
                                 </a>
                             </li>
                             <li class="notification-item">
                                 <a href="#">
-                                    <img src="../assets/img/pizza.jpg" alt="Pizza" class="notification-img">
+                                    <img src="../../assets/img/pizza.jpg" alt="Pizza" class="notification-img">
                                     <div class="notification-info">
                                         <div class="notification-name">Pizza thứ tư siêu ưu đãi!</div>
                                         <div class="notificaiton-desc">Mua 2 tặng 1 áp dụng cho size M và size L</div>
@@ -91,7 +92,7 @@
 
                             <li class="notification-item">
                                 <a href="#">
-                                    <img src="../assets/img/drink.png" alt="Drink" class="notification-img">
+                                    <img src="../../assets/img/drink.png" alt="Drink" class="notification-img">
                                     <div class="notification-info">
                                         <div class="notification-name">Tặng nước miễn phí!</div>
                                         <div class="notificaiton-desc">Gọi món combo sẽ được tặng 1 nước ngẫu nhiên.
@@ -103,7 +104,7 @@
 
                             <li class="notification-item">
                                 <a href="#">
-                                    <img src="../assets/img/burger.jpg" alt="Burger" class="notification-img">
+                                    <img src="../../assets/img/burger.jpg" alt="Burger" class="notification-img">
                                     <div class="notification-info">
                                         <div class="notification-name">Burger ngày chủ nhật!</div>
                                         <div class="notificaiton-desc">Giảm 25% cho tất cả các loại burger hôm nay.
@@ -119,10 +120,10 @@
                     </div>
                 </div>
                 <div class="user-avatar-wrapper">
-                    <img src="../assets/img/unknownAvatarUser.png" alt="Người vô danh" title="Thông tin cá nhân">
+                    <img src="../../assets/img/unknownAvatarUser.png" alt="Người vô danh" title="Thông tin cá nhân">
                     <div class="user-dropdown-menu">
-                        <a href="../UserMenu/Profile/profile.html">Thông tin cá nhân</a>
-                        <a href="../UserMenu/Favourite/favourite.html">Yêu thích</a>
+                        <a href="../Profile/profile.html">Thông tin cá nhân</a>
+                        <a href="./favourite.html">Yêu thích</a>
                         <a href="#">Đơn hàng của tôi</a>
                         <a href="#">Ngôn ngữ</a>
                         <a href="#">Đăng xuất</a>
@@ -133,47 +134,31 @@
     </div>
 
     <!-- Main container -->
-    <div class="main-container">
-        <section id="booking-section">
-            <h2>Đặt bàn tại FoodHub</h2>
-            <p>Vui lòng điền thông tin dưới đây để đặt bàn. Chúng tôi sẽ liên hệ với bạn để xác nhận.</p>
+    <main class="main-container">
+        <div id="login-required-message" class="booking-message" style="display: none;">
+            <p><strong>Bạn phải đăng nhập để xem trang Favourite này.</strong></p>
+            <a href="../Login/login.html" class="btn">Đăng nhập ngay</a>
+        </div>
 
-            <div id="login-required-message" class="booking-message">
-                <p><strong>Bạn phải đăng nhập để sử dụng tính năng này.</strong></p>
-                <a href="../Login/login.html" class="btn">Đăng nhập ngay</a>
-            </div>
+        <section id="favourite-section" style="display: none;">
+            <h1>Món ăn yêu thích</h1>
+            <p>Đây là danh sách các món ăn bạn đã lưu lại.</p>
 
-            <div id="booking-content">
-                <form id="booking-form">
-                    <div class="form-group">
-                        <label for="name">Họ và tên:</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Số điện thoại:</label>
-                        <input type="tel" id="phone" name="phone" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="date">Ngày đặt:</label>
-                        <input type="date" id="date" name="date" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="time">Giờ đặt:</label>
-                        <input type="time" id="time" name="time" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="guests">Số lượng người:</label>
-                        <input type="number" id="guests" name="guests" min="1" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="notes">Ghi chú:</label>
-                        <textarea id="notes" name="notes" rows="4"></textarea>
-                    </div>
-                    <button type="submit" class="btn">Xác nhận đặt bàn</button>
-                </form>
+            <div class="favourite-controls">
+                <div class="sort-options">
+                    <select id="sort-select" class="sort-select">
+                        <option value="default">Sắp xếp mặc định</option>
+                        <option value="az">Tên: A-Z</option>
+                        <option value="za">Tên: Z-A</option>
+                        <option value="price-asc">Giá: Tăng dần</option>
+                        <option value="price-desc">Giá: Giảm dần</option>
+                    </select>
+                </div>
             </div>
+            <!-- Nội dung danh sách yêu thích sẽ được JS chèn vào đây -->
+            <div id="favourite-list" class="favourite-list"></div>
         </section>
-    </div>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
@@ -189,7 +174,7 @@
                     <li><a href="../index.html#testimonials">Đánh giá</a></li>
                     <li><a href="../index.html#contact">Liên hệ</a></li>
                     <li><a href="../MenuFood/menuFood.html">Thực đơn</a></li>
-                    <li><a href="#">Đặt bàn</a></li>
+                    <li><a href="../booking/booking.html">Đặt bàn</a></li>
                 </ul>
             </div>
             <div class="footer-column">
@@ -216,8 +201,8 @@
         </div>
     </footer>
 
-    <script src="../assets/interact/header.js"></script>
-    <script src="./script.js"></script>
+    <script src="../../assets/interact/header.js"></script>
+    <script src="./favourite.js"></script>
 </body>
 
 </html>
