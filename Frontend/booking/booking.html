@@ -166,6 +166,18 @@
                         <input type="number" id="guests" name="guests" min="1" required>
                     </div>
                     <div class="form-group">
+                        <label>Chọn món ăn (tùy chọn):</label>
+                        <div id="dish-selection-container" class="dish-container">
+                            <!-- Món ăn sẽ được tải và hiển thị ở đây bằng JavaScript -->
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Món đã chọn:</label>
+                        <div id="selected-dishes-summary" class="dish-summary">
+                            <p>Chưa có món nào được chọn.</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label for="notes">Ghi chú:</label>
                         <textarea id="notes" name="notes" rows="4"></textarea>
                     </div>
@@ -217,6 +229,7 @@
     </footer>
 
     <script src="../assets/interact/header.js"></script>
+    <script src="../assets/config.js"></script>
     <script src="./script.js"></script>
 </body>
 

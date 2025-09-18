@@ -35,6 +35,10 @@
     margin: 0 auto;
 }
 
+#selected-dishes-summary p {
+    margin-bottom: 0;
+}
+
 .form-group {
     margin-bottom: 20px;
 }
@@ -53,7 +57,7 @@
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     box-sizing: border-box;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -107,6 +111,111 @@
 #login-required-message {
     display: none;
 }
+
+/* --- Dish Selection --- */
+.dish-container {
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 5px;
+    background-color: #f9f9f9;
+}
+
+.dish-item-selection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+.dish-item-selection:last-child {
+    border-bottom: none;
+}
+
+.dish-item-image {
+    width: 60px;
+    height: 50px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.dish-item-info {
+    flex-grow: 1;
+}
+
+.dish-item-name {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.dish-item-price {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+.btn-add-dish {
+    padding: 8px 14px;
+    background-image: linear-gradient(to right, #fe2389, #b253e1);
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(254, 35, 137, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-add-dish:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(254, 35, 137, 0.6);
+}
+
+
+/* --- Selected Dishes Summary --- */
+.dish-summary {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 8px 15px;
+    margin-top: 10px;
+}
+
+.selected-dish-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    font-size: 1.4rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.selected-dish-item:last-child {
+    border-bottom: none;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+}
+
+.btn-quantity {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 50%;
+}
+
+.quantity {
+    margin: 0 10px;
+    font-weight: 500;
+}
+
 
 
 /* Footer */
@@ -221,5 +330,9 @@
     #booking-section p {
         font-size: 1.4rem;
         margin-bottom: 20px;
+    }
+
+    #selected-dishes-summary p {
+        margin-bottom: 0;
     }
 }
