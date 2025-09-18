@@ -8,8 +8,9 @@ FoodHub là một website giới thiệu các món ăn truyền thống và hi�
 - Tìm kiếm món ăn theo tên
 - Có thể đánh giá món ăn và xem những đánh giá chân thật từ khách hàng
 - Giao diện đẹp, dễ sử dụng
+- Tính năng xem thông tin cá nhân, yêu thính, và lịch sử đặt bàn
 
-## Tài khoản sau khi đăng nhập, đăng kí (đang triển khai)
+## Tài khoản sau khi đăng nhập, đăng kí (đã hoàn thành)
 
-- Hiện tại chưa xử lý việc sau khi đăng nhập nhưng bạn có thể xem một chút tính năng demo bằng cách thêm class = "guest" vào thẻ body của mỗi trang.
-- Backend hiện tại chưa phù hợp để xử lý dự án này nên mọi người thông cảm nha
+- Đã deploy backend server thành công (mức cơ bản) giờ đây mọi người có thể đăng ký, đăng nhập bình thường
+- Chức năng đăng ký đăng nhập bằng Google, Facebook sẽ triển khai sau.

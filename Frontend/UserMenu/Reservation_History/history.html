@@ -3,13 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <script>document.documentElement.classList.add('js-header-loading');</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thông tin cá nhân | FoodHub</title>
+    <title>Lịch sử đặt bàn | FoodHub</title>
     <link rel="stylesheet" href="../../assets/css/base.css">
     <link rel="stylesheet" href="../../assets/css/header.css">
     <link rel="stylesheet" href="../../assets/css/footer.css">
-    <link rel="stylesheet" href="./profile.css">
+    <link rel="stylesheet" href="./history.css">
     <link rel="icon" type="image/jpg" href="../../assets/img/avatarFood.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link
@@ -80,40 +79,6 @@
                                     </div>
                                 </a>
                             </li>
-                            <li class="notification-item">
-                                <a href="#">
-                                    <img src="../../assets/img/pizza.jpg" alt="Pizza" class="notification-img">
-                                    <div class="notification-info">
-                                        <div class="notification-name">Pizza thứ tư siêu ưu đãi!</div>
-                                        <div class="notificaiton-desc">Mua 2 tặng 1 áp dụng cho size M và size L</div>
-                                        <div class="notification-time">50 phút trước</div>
-                                    </div>
-                                </a>
-                            </li>
-
-                            <li class="notification-item">
-                                <a href="#">
-                                    <img src="../../assets/img/drink.png" alt="Drink" class="notification-img">
-                                    <div class="notification-info">
-                                        <div class="notification-name">Tặng nước miễn phí!</div>
-                                        <div class="notificaiton-desc">Gọi món combo sẽ được tặng 1 nước ngẫu nhiên.
-                                        </div>
-                                        <div class="notification-time">1 giờ trước</div>
-                                    </div>
-                                </a>
-                            </li>
-
-                            <li class="notification-item">
-                                <a href="#">
-                                    <img src="../../assets/img/burger.jpg" alt="Burger" class="notification-img">
-                                    <div class="notification-info">
-                                        <div class="notification-name">Burger ngày chủ nhật!</div>
-                                        <div class="notificaiton-desc">Giảm 25% cho tất cả các loại burger hôm nay.
-                                        </div>
-                                        <div class="notification-time">2 giờ trước</div>
-                                    </div>
-                                </a>
-                            </li>
                         </ul>
                         <div class="notification-footer">
                             <a href="#">Xem tất cả thông báo</a>
@@ -123,9 +88,9 @@
                 <div class="user-avatar-wrapper">
                     <img src="../../assets/img/unknownAvatarUser.png" alt="Người vô danh" title="Thông tin cá nhân">
                     <div class="user-dropdown-menu">
-                        <a href="./profile.html">Thông tin cá nhân</a>
+                        <a href="../Profile/profile.html">Thông tin cá nhân</a>
                         <a href="../Favourite/favourite.html">Yêu thích</a>
-                        <a href="../Reservation_History/history.html">Lịch sử đặt bàn</a>
+                        <a href="./history.html">Lịch sử đặt bàn</a>
                         <a href="#">Ngôn ngữ</a>
                         <a href="#">Đăng xuất</a>
                     </div>
@@ -135,76 +100,25 @@
     </div>
 
     <!-- Main container -->
-    <div class="main-container">
+    <main class="main-container">
         <div id="login-required-message" class="booking-message" style="display: none;">
             <p><strong>Bạn phải đăng nhập để xem trang này.</strong></p>
             <a href="../../Login/login.html" class="btn">Đăng nhập ngay</a>
         </div>
 
-        <section id="profile-section" style="display: none;">
-            <h1>Hồ sơ của tôi</h1>
-            <p>Quản lý thông tin hồ sơ của bạn để bảo mật tài khoản</p>
-            <div class="profile-container">
-                <div class="profile-sidebar">
-                    <div class="profile-avatar">
-                        <img id="avatar-preview" src="../../assets/img/unknownAvatarUser.png" alt="User Avatar">
-                        <label for="avatar-upload" class="avatar-upload-label" title="Thay đổi ảnh đại diện">
-                            <i class="fa-solid fa-camera"></i>
-                        </label>
-                        <input type="file" id="avatar-upload" accept="image/*" hidden>
-                    </div>
-                    <h3 id="sidebar-username">Tên người dùng</h3>
-                    <ul class="sidebar-nav">
-                        <li><a href="#account-info" class="active"><i class="fa-solid fa-user-pen"></i> Thông tin tài
-                                khoản</a></li>
-                        <li><a href="#change-password"><i class="fa-solid fa-key"></i> Đổi mật khẩu</a></li>
-                    </ul>
-                </div>
-                <div class="profile-content">
-                    <div id="account-info" class="profile-tab active">
-                        <h2>Thông tin tài khoản</h2>
-                        <form id="account-info-form">
-                            <div class="form-group">
-                                <label for="username">Tên đăng nhập:</label>
-                                <input type="text" id="username" name="username" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email:</label>
-                                <input type="email" id="email" name="email" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="fullname">Họ và tên:</label>
-                                <input type="text" id="fullname" name="fullname" placeholder="Chưa có thông tin">
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Số điện thoại:</label>
-                                <input type="tel" id="phone" name="phone" placeholder="Chưa có thông tin">
-                            </div>
-                            <button type="submit" class="btn">Lưu thay đổi</button>
-                        </form>
-                    </div>
-                    <div id="change-password" class="profile-tab">
-                        <h2>Đổi mật khẩu</h2>
-                        <form id="change-password-form">
-                            <div class="form-group">
-                                <label for="current-password">Mật khẩu hiện tại:</label>
-                                <input type="password" id="current-password" name="current-password" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="new-password">Mật khẩu mới:</label>
-                                <input type="password" id="new-password" name="new-password" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="confirm-password">Xác nhận mật khẩu mới:</label>
-                                <input type="password" id="confirm-password" name="confirm-password" required>
-                            </div>
-                            <button type="submit" class="btn">Cập nhật mật khẩu</button>
-                        </form>
-                    </div>
+        <section id="history-section" style="display: none;">
+            <h1>Lịch sử đặt bàn</h1>
+            <p>Dưới đây là danh sách các lần đặt bàn của bạn tại FoodHub.</p>
+
+            <!-- Nội dung lịch sử đặt bàn sẽ được JS chèn vào đây -->
+            <div id="booking-history-list" class="booking-history-list">
+                <!-- Loader -->
+                <div class="loader-wrapper">
+                    <div class="loader"></div>
                 </div>
             </div>
         </section>
-    </div>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
@@ -216,11 +130,11 @@
             <div class="footer-column">
                 <h3>Tổng quan</h3>
                 <ul>
-                    <li><a href="../index.html#home">Home</a></li>
-                    <li><a href="../index.html#testimonials">Đánh giá</a></li>
-                    <li><a href="../index.html#contact">Liên hệ</a></li>
-                    <li><a href="../MenuFood/menuFood.html">Thực đơn</a></li>
-                    <li><a href="../booking/booking.html">Đặt bàn</a></li>
+                    <li><a href="../../index.html#home">Home</a></li>
+                    <li><a href="../../index.html#testimonials">Đánh giá</a></li>
+                    <li><a href="../../index.html#contact">Liên hệ</a></li>
+                    <li><a href="../../MenuFood/menuFood.html">Thực đơn</a></li>
+                    <li><a href="../../booking/booking.html">Đặt bàn</a></li>
                 </ul>
             </div>
             <div class="footer-column">
@@ -248,7 +162,7 @@
     </footer>
 
     <script src="../../assets/interact/header.js"></script>
-    <script src="./profile.js"></script>
+    <script src="./history.js"></script>
 </body>
 
 </html>
