@@ -405,6 +405,17 @@ button:hover {
     }
 }
 
+.back-to-home {
+    font-size: 1rem;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.back-to-home:hover {
+    color: #d4176f;
+    text-decoration: underline;
+}
+
 
 /* Responsive for phone */
 @media (max-width: 639px) {
